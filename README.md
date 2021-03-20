@@ -1,1 +1,2 @@
 # NLP_Text_Classification_for_Intelligent_Triage
+这里记录了第一个NLP文本分类项目，目的是实现智能分诊
