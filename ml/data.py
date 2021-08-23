@@ -1,12 +1,15 @@
+#!/usr/bin/env python
+# coding=utf-8
 '''
-Author: Bingyu Jiang, Peixin Lin
-LastEditors: Peixin Lin
-Date: 2021-01-03 21:33:04
-LastEditTime: 2021-01-03 21:37:58
-FilePath: /JD_NLP1-text_classfication/data.py
-Desciption: Process data.
-Copyright: 北京贪心科技有限公司版权所有。仅供教学目的使用。
+Author: Yuxiang Yang
+Date: 2021-08-20 14:46:39
+LastEditors: Yuxiang Yang
+LastEditTime: 2021-08-20 16:01:29
+FilePath: /Chinese-Text-Classification/ml/data.py
+Description: 数据预处理
 '''
+
+
 import config
 
 id2label = {}

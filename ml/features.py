@@ -1,10 +1,12 @@
+#!/usr/bin/env python
+# coding=utf-8
 '''
-Author: xiaoyao jiang
-LastEditors: Peixin Lin
-Date: 2020-08-31 14:19:43
-LastEditTime: 2021-01-03 21:38:47
-FilePath: /JD_NLP1-text_classfication/features.py
-Desciption: Feature engineering.
+Author: Yuxiang Yang
+Date: 2021-08-20 14:46:39
+LastEditors: Yuxiang Yang
+LastEditTime: 2021-08-20 20:53:58
+FilePath: /Chinese-Text-Classification/ml/features.py
+Description: 
 '''
 import numpy as np
 from numpy import linalg
@@ -15,40 +17,33 @@ import jieba.posseg as pseg
 import jieba
 import json
 import os
-
+import config
 import logging
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s %(filename)s %(levelname)s %(message)s',
-                    datefmt='%a, %d %b %Y %H:%M:%S', 
-                    encoding='utf-8')
+                    datefmt='%Y-%m-%d %H:%M:%S')
 
 
 def label2idx(data):
     # 加载所有类别， 获取类别的embedding， 并保存文件
-    if os.path.exists('./data/label2id.json'):
-        labelToIndex = json.load(open('./data/label2id.json',
-                                      encoding='utf-8'))
+    if os.path.exists(config.label2id_file):
+        labelToIndex = json.load(open(config.label2id_file ,encoding='utf-8'))
     else:
         label = data['label'].unique()
         labelToIndex = dict(zip(label, list(range(len(label)))))
-        with open('./data/label2id.json', 'w', encoding='utf-8') as f:
+        with open(config.label2id_file, 'w', encoding='utf-8') as f:
             json.dump({k: v for k, v in labelToIndex.items()}, f)
     return labelToIndex
 
 
 def get_tfidf(tfidf, data):
-    print(data['text'])
-    stopWords = [x.strip() for x in open('./data/stopwords.txt', encoding='utf-8', mode='r').readlines()]
+    stopWords = [x.strip() for x in open(config.stopwords, encoding='utf-8', mode='r').readlines()]
     text = data['text'].apply(lambda x: " ".join(
         [w for w in x.split() if w not in stopWords and w != '']))
-    logging.info(text.head(5))
     text = tfidf.transform(text.tolist()).toarray()
-    word = tfidf.get_feature_names()
-    # logging.info(word)
+    # word = tfidf.get_feature_names()
     data_tfidf = pd.DataFrame(text)
     data_tfidf.columns = ['tfidf' + str(i) for i in range(data_tfidf.shape[1])]
-    # logging.info(data_tfidf.head(5))
-    # logging.info(data_tfidf.iloc[0][data_tfidf.iloc[0] != 0.0])
     data = pd.concat([data, data_tfidf], axis=1)
 
     return data
@@ -69,18 +64,17 @@ def get_embedding_feature(data, embedding_model):
     data, data set
     '''
     labelToIndex = label2idx(data)
-    w2v_label_embedding = np.array([
-        np.mean([
-            embedding_model.wv.get_vector(word) for word in key
-            if word in embedding_model.wv.vocab.keys()
-        ],
-                axis=0) for key in labelToIndex
-    ])
+    w2v_label_embedding = np.zeros(shape=(len(labelToIndex), embedding_model.vector_size))
+    for i, key in enumerate(labelToIndex.keys()):
+        vec = np.zeros(embedding_model.vector_size)
+        for word in key:
+            if word in embedding_model.key_to_index:
+                vec += embedding_model[word]
+        vec /= len(key)
+        w2v_label_embedding[i] = vec
     joblib.dump(w2v_label_embedding, './data/w2v_label_embedding.pkl')
     # 根据未聚合的embedding 数据， 获取各类embedding 特征
-    print("transform w2v")
-    #     data['w2v'] = data["text"].apply(
-    #         lambda x: wam(x, embedding_model, aggregate=False))  # [seq_len * 300]
+    logging.info("transform w2v")
     tmp = data['text'].apply(lambda x: pd.Series(
         generate_feature(x, embedding_model, w2v_label_embedding)))
     tmp = pd.concat([array2df(tmp, col) for col in tmp.columns], axis=1)
@@ -98,40 +92,28 @@ def wam(sentence, w2v_model, method='mean', aggregate=True):
     aggregate: 是否进行聚合
     @return:
     '''
-
-    #######################################################################
-    #          TODO:  句向量处理 #
-    #######################################################################
     # 获取句子中的词向量，放入list中
-    stop_words = [x.strip() for x in open('./data/stopwords.txt', encoding='utf-8', mode='r').readlines()]
+    stop_words = [x.strip() for x in open(config.stopwords, encoding='utf-8', mode='r').readlines()]
     arr = np.zeros((len(sentence.split()), 300))
     for i, word in enumerate(sentence.split()): 
         if word not in stop_words:
             try:
-                v = w2v_model.wv.get_vector(word)
+                v = w2v_model.get_vector(word)
                 arr[i] = v
             except Exception:
-                print("word %s not found" % word)
+                # print("word %s not found" % word)
+                pass
             
 
     if not aggregate:
         return arr
     if len(arr) > 0:
-        #######################################################################
-        #          TODO:  句向量处理 #
-        #######################################################################
-        # 第一种方法对一条样本中的词求平均
+        # 求平均
         if method == 'mean':
             return np.mean(arr, axis=0)
-            #
-
-        #######################################################################
-        #          TODO:  句向量处理 #
-        #######################################################################
-        # 第二种方法返回一条样本中的最大值
+        # 最大值
         elif method == 'max':
             return np.max(arr, axis=0)
-           #
         else:
             raise NotImplementedError
     else:
@@ -154,7 +136,6 @@ def generate_feature(sentence, embedding_model, label_embedding):
     '''
     # 首先在预训练的词向量中获取标签的词向量句子,每一行表示一个标签表示
     # 每一行表示一个标签的embedding
-    # 计算label embedding 具体参见文档
 
     # 同上， 获取embedding 特征， 不进行聚合
     w2v = wam(sentence, embedding_model, aggregate=False)  # [seq_len * 300]
@@ -226,9 +207,6 @@ def Find_Label_embedding(example_matrix, label_embedding, method='mean'):
     label_embedding(np.array 2D): denotes the embedding of all label, (class_nums, embedding_size)
     @return: (np.array 1D) the embedding by join label and word
     '''
-    #######################################################################
-    #          TODO:  句向量处理 #
-    #######################################################################
     # 根据矩阵乘法来计算label与word之间的相似度 cosin similiarity
     assert label_embedding.shape[1] == example_matrix.shape[1]
     similarity_matrix = np.dot(example_matrix, label_embedding.T) / (
@@ -237,9 +215,6 @@ def Find_Label_embedding(example_matrix, label_embedding, method='mean'):
     # similarity_matrix = np.matmul(label_embedding, example_matrix.T) / (
     #     np.linalg.norm(label_embedding) * np.linalg.norm(example_matrix)) # (class_nums, seq_len)
 
-    #######################################################################
-    #          TODO:  句向量处理 #
-    #######################################################################
     # 然后对相似矩阵进行均值池化，则得到了“类别-词语”的注意力机制
     # 这里可以使用max-pooling和mean-pooling,然后取softmax
     if method == 'mean':
@@ -268,10 +243,6 @@ def Find_embedding_with_windows(embedding_matrix, window_size=2,
     '''
     # 最终的词向量
     result_list = []
-
-    #######################################################################
-    #          TODO:  句向量处理 #
-    #######################################################################
     # 遍历input的长度， 根据窗口的大小获取embedding， 进行mean操作， 然后将得到的结果extend到list中， 最后进行mean max 聚合
     for k1 in range(len(embedding_matrix)):
         # 如何当前位置 + 窗口大小 超过input的长度， 则取当前位置到结尾
@@ -299,15 +270,11 @@ def get_lda_features_helper(lda_model, document):
     document, input
     @return: lda feature
     '''
-    #######################################################################
-    #          TODO:  句向量处理 #
-    #######################################################################
     # 基于bag of word 格式数据获取lda的特征
-    topic_importances = lda_model.get_document_topics(document, minimum_probability=0)
+    topic_importance = lda_model.get_document_topics(document, minimum_probability=0)
 
-    topic_importances = np.array(topic_importances)
-    # print(topic_importances)
-    return topic_importances[:, 1]
+    topic_importance = np.array(topic_importance)
+    return topic_importance[:, 1]
 
 
 def get_lda_features(data, LDAmodel):
@@ -315,10 +282,10 @@ def get_lda_features(data, LDAmodel):
         data['text'] = data['text'].apply(lambda x: x.split())
     data['bow'] = data['text'].apply(
         lambda x: LDAmodel.id2word.doc2bow(x))
-    logging.info("data['bow']:\n %s", data['bow'].head(5))
+    # logging.info("data['bow']:\n %s", data['bow'].head(5))
     data['lda'] = list(
         map(lambda doc: get_lda_features_helper(LDAmodel, doc), data['bow']))
-    logging.info("data['lda']:\n %s", data['lda'].head(5))
+    # logging.info("data['lda']:\n %s", data['lda'].head(5))
     cols = [x for x in data.columns if x not in ['lda', 'bow']] 
     return pd.concat([data[cols], array2df(data, 'lda')], axis=1)
 
@@ -369,9 +336,6 @@ def get_basic_feature_helper(text):
         text = text.split()
     # 分词
     queryCut = [i if i not in ch2en.keys() else ch2en[i] for i in text]
-    #######################################################################
-    #          TODO:  句向量处理 #
-    #######################################################################
     # 词的个数
     num_words = len(queryCut)
 
@@ -381,17 +345,11 @@ def get_basic_feature_helper(text):
     caps_vs_length = capitals / num_words
     # 感叹号的个数
     num_exclamation_marks = queryCut.count('!')
-    #######################################################################
-    #          TODO:  句向量处理 #
-    #######################################################################
     # 问号个数
     num_question_marks = queryCut.count('?')
 
     # 标点符号个数
     num_punctuation = sum(queryCut.count(w) for w in string.punctuation)
-    #######################################################################
-    #          TODO:  句向量处理 #
-    #######################################################################
     # *&$%字符的个数
     num_symbols = sum(queryCut.count(w) for w in ['*', '&', '$', '%'])
 

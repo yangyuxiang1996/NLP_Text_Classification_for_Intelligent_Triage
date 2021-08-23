@@ -1,3 +1,13 @@
+#!/usr/bin/env python
+# coding=utf-8
+'''
+Author: Yuxiang Yang
+Date: 2021-08-20 14:46:39
+LastEditors: Yuxiang Yang
+LastEditTime: 2021-08-20 18:54:30
+FilePath: /Chinese-Text-Classification/ml/tools.py
+Description: 
+'''
 from skopt import BayesSearchCV
 from sklearn.model_selection import GridSearchCV, StratifiedKFold
 import lightgbm as lgb
