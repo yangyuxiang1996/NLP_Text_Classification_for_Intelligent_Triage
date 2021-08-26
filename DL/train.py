@@ -4,7 +4,7 @@
 Author: Yuxiang Yang
 Date: 2021-08-22 22:01:56
 LastEditors: Yuxiang Yang
-LastEditTime: 2021-08-23 17:02:30
+LastEditTime: 2021-08-24 21:00:29
 FilePath: /Chinese-Text-Classification/DL/train.py
 Description: 
 '''
@@ -18,24 +18,27 @@ import os
 import config
 from utils.dataset import MedicalData, collate_fn
 from models.bilstm import LSTMModel
-from models.bert_model import BertModelForMedical, RobertaModelForMedical
-from torch.utils.data import DataLoader
-from transformers import BertConfig, RobertaConfig, BertTokenizer, RobertaTokenizer
+from models.bert_model import BertModelForMedical
+from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
+from transformers import BertConfig, BertTokenizer
 import logging
 from sklearn import metrics
+from utils.adamw import AdamW
+from utils.loss import FocalLoss
+from utils.lr_scheduler import get_linear_schedule_with_warmup
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s %(filename)s %(levelname)s %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S')
 
-np.random.seed(33)
-torch.manual_seed(33)
-torch.cuda.manual_seed_all(33)
+np.random.seed(42)
+torch.manual_seed(42)
+torch.cuda.manual_seed_all(42)
 torch.backends.cudnn.deterministic = True  # 保证每次结果一样
 
 MODEL_CLASSES = {
     ## bert ernie bert_wwm bert_wwwm_ext
     'bert': (BertConfig, BertModelForMedical, BertTokenizer),
-    'roberta': (RobertaConfig, RobertaModelForMedical, RobertaTokenizer),
+    'roberta': (BertConfig, BertModelForMedical, BertTokenizer),
 }
 
 
@@ -65,9 +68,10 @@ def init_network(model, method='xavier', exclude='embedding', seed=123):
 
 def train(model, train_dataset, dev_dataset, test_dataset):
     start_time = time.time()
+    train_sampler = RandomSampler(train_dataset)
     train_dataloader = DataLoader(train_dataset,
                                   batch_size=config.batch_size,
-                                  shuffle=True,
+                                  sampler=train_sampler,
                                   collate_fn=collate_fn)
     model.train()
     if config.use_cuda:
@@ -83,45 +87,55 @@ def train(model, train_dataset, dev_dataset, test_dataset):
                 p for n, p in param_optimizer
                 if not any(nd in n for nd in no_decay)
             ],
-            'weight_decay': 0.01
+            'weight_decay': 0.02
         }, {
             'params':
             [p for n, p in param_optimizer if any(nd in n for nd in no_decay)],
             'weight_decay': 0.0
         }]
-        optimizer = torch.optim.AdamW(optimizer_grouped_parameters,
-                                      lr=config.learning_rate,
-                                      eps=config.eps)
+        optimizer = AdamW(optimizer_grouped_parameters,
+                          lr=config.learning_rate, 
+                          eps=config.eps)
     
+    t_total = len(train_dataloader) // config.gradient_accumulation_steps * config.num_train_epochs
+    warmup_steps = int(t_total * config.warmup_proportion)
+    scheduler = get_linear_schedule_with_warmup(optimizer,
+                                                num_warmup_steps=warmup_steps,
+                                                num_training_steps=t_total)
+    criterion = FocalLoss(gamma=2)
     # Train!
     logging.info("***** Running training *****")
     logging.info("  Num examples = %d", len(train_dataset))
     logging.info("  Num Epochs = %d", config.num_train_epochs)
     logging.info("  batch size = %d", config.batch_size)
     logging.info("  Num batches = %d", config.num_train_epochs * len(train_dataloader))
+    logging.info("  device: {}".format(config.device))
     
     total_batch = 0
     dev_best_acc = float('-inf')
     last_improve = 0
     flag = False
 
-    checkpoints = [path for path in os.listdir(config.save_path) if "checkpoint" in path]
+    checkpoints = [path for path in os.listdir(config.save_path) if path.startswith("checkpoint")]
     if checkpoints:
+        print(checkpoints)
         checkpoints = sorted(map(lambda x: os.path.splitext(x)[0].split("_"), checkpoints), key=lambda x: float(x[2]))[-1]
-        dev_best_acc = float(checkpoints[-1])
+        dev_best_acc = float(checkpoints[-1]) / 100
         model_path = os.path.join(config.save_path, "_".join(checkpoints)+".ckpt")
         model.load_state_dict(torch.load(model_path))
         logging.info("继续训练, {}".format(model_path))
+        logging.info("最大准确率: {}".format(dev_best_acc))
         
     for epoch in range(config.num_train_epochs):
         logging.info('Epoch [{}/{}]'.format(epoch + 1, config.num_train_epochs))
         for i, batch in enumerate(train_dataloader):
             attention_mask, token_type_ids = None, None
-            if config.model_name == "bert":
-                token_ids, attention_mask, token_type_ids, labels = batch
+            if "bert" in config.model_name:
+                token_ids, attention_mask, token_type_ids, labels, tokens = batch
             else:
-                token_ids, labels = batch
+                token_ids, labels, tokens = batch
             if i < 1:
+                logging.info("tokens: {}\n ".format(tokens))
                 logging.info("token_ids: {}\n ".format(token_ids))
                 logging.info("token_ids shape: {}\n ".format(token_ids.shape))
                 logging.info("attention_mask: {}\n".format(attention_mask))
@@ -134,12 +148,19 @@ def train(model, train_dataset, dev_dataset, test_dataset):
                 token_type_ids = token_type_ids.to(config.device)
                 labels = labels.to(config.device)
             outputs = model((token_ids, attention_mask, token_type_ids))
-            model.zero_grad()
-            loss = F.cross_entropy(outputs, labels)
-            loss.backward()
-            optimizer.step()
+            # loss = F.cross_entropy(outputs, labels)
+            loss = criterion(outputs, labels)
+            if config.gradient_accumulation_steps > 1:
+                loss = loss / config.gradient_accumulation_steps
             
             total_batch += 1
+            if total_batch % config.gradient_accumulation_steps == 0:
+                torch.nn.utils.clip_grad_norm_(model.parameters(), config.max_grad_norm)
+                loss.backward()
+                scheduler.step()  # Update learning rate schedule
+                optimizer.step()
+                model.zero_grad()
+            
             if total_batch % config.logging_step == 0:
                 true = labels.data.cpu()
                 predicts = torch.max(outputs.data, 1)[1].cpu()
@@ -147,6 +168,7 @@ def train(model, train_dataset, dev_dataset, test_dataset):
                 output = evaluate(model, dev_dataset)
                 dev_acc, dev_loss = output[0], output[1]
                 if dev_acc > dev_best_acc:
+                    logging.info("saving model..........")
                     torch.save(model.state_dict(), os.path.join(config.save_path, "checkpoint_{}_{:.2f}.ckpt".format(total_batch, dev_acc*100)))
                     improve = '*'
                     last_improve = total_batch
@@ -168,10 +190,13 @@ def train(model, train_dataset, dev_dataset, test_dataset):
         predict(model, test_dataset)
 
 def evaluate(model, dev_dataset, print_report=True):
+    logging.info("evaluate....................")
     model.eval()
+    criterion = FocalLoss(gamma=2)
+    dev_sampler = SequentialSampler(dev_dataset)
     dev_dataloader = DataLoader(dev_dataset,
                                 batch_size=config.batch_size,
-                                shuffle=True,
+                                sampler=dev_sampler,
                                 collate_fn=collate_fn)
     dev_loss = 0
     predict_all = np.array([], dtype=int)
@@ -179,17 +204,18 @@ def evaluate(model, dev_dataset, print_report=True):
     with torch.no_grad():
         for i, batch in enumerate(dev_dataloader):
             attention_mask, token_type_ids = None, None
-            if config.model_name == "bert":
-                token_ids, attention_mask, token_type_ids, labels = batch
+            if "bert" in config.model_name:
+                token_ids, attention_mask, token_type_ids, labels, tokens = batch
             else:
-                token_ids, labels = batch
+                token_ids, labels, tokens = batch
             if config.use_cuda:
                 token_ids = token_ids.to(config.device)
                 attention_mask = attention_mask.to(config.device)
                 token_type_ids = token_type_ids.to(config.device)
                 labels = labels.to(config.device)
             outputs = model((token_ids, attention_mask, token_type_ids))
-            loss = F.cross_entropy(outputs, labels)
+            # loss = F.cross_entropy(outputs, labels)
+            loss = criterion(outputs, labels)
             dev_loss += loss
             labels = labels.data.cpu().numpy()
             predicts = torch.max(outputs.data, 1)[1].cpu().numpy()
@@ -210,6 +236,7 @@ def evaluate(model, dev_dataset, print_report=True):
     
 def predict(model, test_dataset):
     # test
+    logging.info("predict....................")
     model.load_state_dict(torch.load(os.path.join(config.save_path, "model.ckpt")))
     model.eval()
     start_time = time.time()
@@ -246,7 +273,7 @@ def main():
                           bidirectional=config.bidirectional,
                           embeddings=embeddings
                           )
-    elif config.model_name == "bert":
+    elif "bert" in config.model_name:
         config_class, model_class, tokenizer_class = MODEL_CLASSES[config.model_name]
         bert_config = config_class.from_pretrained(config.bert_path,
                                                    num_labels=config.num_classes,

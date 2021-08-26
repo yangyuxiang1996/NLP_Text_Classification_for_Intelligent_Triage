@@ -1,0 +1,894 @@
+nohup: ignoring input
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:523: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:524: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:526: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:527: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:532: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+2021-08-24 22:04:25 train.py INFO 加载数据......
+2021-08-24 22:04:26 dataset.py INFO 0         我家宝宝大便发酸多月发酸我家宝宝大便发酸多月发酸只吃母乳酸轻加扑食酸很重三顿吃扑食喂母乳化验...
+1                               想怀孕做了一些检查有一个支原体阳性我吃了罗红霉素拉肚子
+2                   暖宫会减小子宫肌瘤及时性一系列麻烦建议日常生活做好防护措施那暖宫会消除子宫肌瘤
+3                                   脚上长跖疣三年脚上跖疣瘢痕增生体质冷冻激光治疗
+4                                     和我老婆做爱的时间还不到两分钟老婆很不满意
+                                ...                        
+110536                         浅表性胃炎患者吃食物身体浅表性胃炎患者吃食物身体谢谢专家
+110537                                         会阴疼尿频尿分叉阴囊潮湿
+110538               念珠菌性阴道炎治疗朋友发现分泌物脏痒痛感检查发现患病想咨询念珠菌性阴道炎治疗
+110539                           手足口病烧退儿子游乐场玩手足口病退热医生手足口病烧退
+110540                                   血糖7.19糖尿病血糖7.19糖尿病
+Name: text, Length: 110541, dtype: object
+2021-08-24 22:04:26 dataset.py INFO Label: 
+2021-08-24 22:04:26 dataset.py INFO 0    12966
+7    11776
+6    11407
+2    11086
+5    10954
+3    10733
+9    10702
+8    10569
+4    10430
+1     9918
+Name: label, dtype: int64
+2021-08-24 22:04:26 dataset.py INFO 0                                     霉菌性阴道炎药好霉菌性阴道炎药好疾病治疗
+1                                  羊癫疯诱发死亡小时弟弟发高烧好久没退患上癫痫病
+2                      便秘改善缓解半个月胃痛吃胃药反反复复复发便秘想厕所却拔大便硬干想做吃药
+3        孩童中耳炎耳朵痒应治疗男宝刚满岁近几天孩子说耳朵疼察觉到还会黄色液体流出伴有低烧请问孩童中耳...
+4                                      医生你好脚步伤疤以前用过此药请帮忙开方
+                               ...                        
+13812    腹部不适呃逆时右腹胀痛头晕咽喉异物感腹部不适喉痛时右腹胀痛屁多偶有恶心呕吐乏力渐消瘦抑郁易怒...
+13813            尿毒症患者甲状旁腺激素高达1800pg尿毒症患者甲状旁腺激素高达1800pgL影响
+13814    有两年多了刚开始是这个小眼里面好像透明按着针扎似的时间长皮有点硬去诊所说是真菌感染用药膏也不...
+13815                                    医生您好我有哮喘病麻烦帮我开一下药
+13816    脑梗死原因吃药患者女50岁30年前肺结核治愈无三高烟酒不良嗜好月前突患左侧偏瘫软瘫右脑内囊后...
+Name: text, Length: 13817, dtype: object
+2021-08-24 22:04:26 dataset.py INFO Label: 
+2021-08-24 22:04:26 dataset.py INFO 0    1648
+7    1439
+6    1435
+2    1429
+3    1325
+5    1319
+8    1318
+1    1312
+4    1308
+9    1284
+Name: label, dtype: int64
+2021-08-24 22:04:26 dataset.py INFO 0                                肾结石腹痛原因肾结石将会腹痛怎么回事肾结石程度治疗
+1        医生你好；我原来是用医院开的通天口服液阿司匹林肠溶片用药后头痛症状基本好了停药有一段时间了但...
+2                              诊断脂溢性皮炎痒起皮发干熬夜加重脂溢性皮炎皮肤刺痒掉皮
+3        刚满一岁宝宝中耳炎岁进10月份宝宝感冒十多天前期流鼻涕症状号上午发烧吃退烧药号发现孩子右耳流...
+4          两天前有点小感冒流鼻涕今天有点咳嗽去医院检查说是有痰喉咙有点发炎家里备有希刻劳附近医院无这种药
+                               ...                        
+13812                                  胃口不好吃的很少但肥胖体检报告参数如图
+13813        流鼻涕咳嗽痰音寒热咳周岁小儿鼻涕两天清水鼻涕今早咳嗽痰音请问寒热咳方子食疗整大蒜水川贝炖梨
+13814        孩子九个月手足口病治孩子九个月手足口病医生吃药医院吃药住院治疗发烧请问孩子九个月手足口病治
+13815     癫痫病孩子智力低下我家小孩子补课老师说有时候出神简单答不出知晓病情干扰在乎癫痫病引发小孩智力低下
+13816    小孩子扁桃体发炎低烧应治疗男孩子岁说话时嗓子疼发现伴有轻微咳嗽伴有低烧请问小孩子扁桃体发炎低...
+Name: text, Length: 13817, dtype: object
+2021-08-24 22:04:26 dataset.py INFO Label: 
+2021-08-24 22:04:26 dataset.py INFO 0    1519
+7    1502
+2    1454
+6    1437
+5    1396
+8    1385
+9    1339
+4    1278
+3    1272
+1    1235
+Name: label, dtype: int64
+2021-08-24 22:04:26 configuration_utils.py INFO loading configuration file /home/user10000761/notespace/Chinese-Text-Classification/DL/pretrained_model/chinese-roberta-wwm-ext/config.json
+2021-08-24 22:04:26 configuration_utils.py INFO Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "directionality": "bidi",
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.3,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2",
+    "3": "LABEL_3",
+    "4": "LABEL_4",
+    "5": "LABEL_5",
+    "6": "LABEL_6",
+    "7": "LABEL_7",
+    "8": "LABEL_8",
+    "9": "LABEL_9"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2,
+    "LABEL_3": 3,
+    "LABEL_4": 4,
+    "LABEL_5": 5,
+    "LABEL_6": 6,
+    "LABEL_7": 7,
+    "LABEL_8": 8,
+    "LABEL_9": 9
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "output_past": true,
+  "pad_token_id": 1,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2021-08-24 22:04:26 tokenization_utils.py INFO Model name '/home/user10000761/notespace/Chinese-Text-Classification/DL/pretrained_model/chinese-roberta-wwm-ext' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased, TurkuNLP/bert-base-finnish-cased-v1, TurkuNLP/bert-base-finnish-uncased-v1, wietsedv/bert-base-dutch-cased). Assuming '/home/user10000761/notespace/Chinese-Text-Classification/DL/pretrained_model/chinese-roberta-wwm-ext' is a path, a model identifier, or url to a directory containing tokenizer files.
+2021-08-24 22:04:26 tokenization_utils.py INFO Didn't find file /home/user10000761/notespace/Chinese-Text-Classification/DL/pretrained_model/chinese-roberta-wwm-ext/added_tokens.json. We won't load it.
+2021-08-24 22:04:26 tokenization_utils.py INFO Didn't find file /home/user10000761/notespace/Chinese-Text-Classification/DL/pretrained_model/chinese-roberta-wwm-ext/special_tokens_map.json. We won't load it.
+2021-08-24 22:04:26 tokenization_utils.py INFO Didn't find file /home/user10000761/notespace/Chinese-Text-Classification/DL/pretrained_model/chinese-roberta-wwm-ext/tokenizer_config.json. We won't load it.
+2021-08-24 22:04:26 tokenization_utils.py INFO loading file /home/user10000761/notespace/Chinese-Text-Classification/DL/pretrained_model/chinese-roberta-wwm-ext/vocab.txt
+2021-08-24 22:04:26 tokenization_utils.py INFO loading file None
+2021-08-24 22:04:26 tokenization_utils.py INFO loading file None
+2021-08-24 22:04:26 tokenization_utils.py INFO loading file None
+2021-08-24 22:04:26 modeling_utils.py INFO loading weights file /home/user10000761/notespace/Chinese-Text-Classification/DL/pretrained_model/chinese-roberta-wwm-ext/pytorch_model.bin
+2021-08-24 22:04:31 modeling_utils.py INFO Weights of BertModelForMedical not initialized from pretrained model: ['bert.bert_model.bert.embeddings.word_embeddings.weight', 'bert.bert_model.bert.embeddings.position_embeddings.weight', 'bert.bert_model.bert.embeddings.token_type_embeddings.weight', 'bert.bert_model.bert.embeddings.LayerNorm.weight', 'bert.bert_model.bert.embeddings.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.0.attention.self.query.weight', 'bert.bert_model.bert.encoder.layer.0.attention.self.query.bias', 'bert.bert_model.bert.encoder.layer.0.attention.self.key.weight', 'bert.bert_model.bert.encoder.layer.0.attention.self.key.bias', 'bert.bert_model.bert.encoder.layer.0.attention.self.value.weight', 'bert.bert_model.bert.encoder.layer.0.attention.self.value.bias', 'bert.bert_model.bert.encoder.layer.0.attention.output.dense.weight', 'bert.bert_model.bert.encoder.layer.0.attention.output.dense.bias', 'bert.bert_model.bert.encoder.layer.0.attention.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.0.attention.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.0.intermediate.dense.weight', 'bert.bert_model.bert.encoder.layer.0.intermediate.dense.bias', 'bert.bert_model.bert.encoder.layer.0.output.dense.weight', 'bert.bert_model.bert.encoder.layer.0.output.dense.bias', 'bert.bert_model.bert.encoder.layer.0.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.0.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.1.attention.self.query.weight', 'bert.bert_model.bert.encoder.layer.1.attention.self.query.bias', 'bert.bert_model.bert.encoder.layer.1.attention.self.key.weight', 'bert.bert_model.bert.encoder.layer.1.attention.self.key.bias', 'bert.bert_model.bert.encoder.layer.1.attention.self.value.weight', 'bert.bert_model.bert.encoder.layer.1.attention.self.value.bias', 'bert.bert_model.bert.encoder.layer.1.attention.output.dense.weight', 'bert.bert_model.bert.encoder.layer.1.attention.output.dense.bias', 'bert.bert_model.bert.encoder.layer.1.attention.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.1.attention.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.1.intermediate.dense.weight', 'bert.bert_model.bert.encoder.layer.1.intermediate.dense.bias', 'bert.bert_model.bert.encoder.layer.1.output.dense.weight', 'bert.bert_model.bert.encoder.layer.1.output.dense.bias', 'bert.bert_model.bert.encoder.layer.1.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.1.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.2.attention.self.query.weight', 'bert.bert_model.bert.encoder.layer.2.attention.self.query.bias', 'bert.bert_model.bert.encoder.layer.2.attention.self.key.weight', 'bert.bert_model.bert.encoder.layer.2.attention.self.key.bias', 'bert.bert_model.bert.encoder.layer.2.attention.self.value.weight', 'bert.bert_model.bert.encoder.layer.2.attention.self.value.bias', 'bert.bert_model.bert.encoder.layer.2.attention.output.dense.weight', 'bert.bert_model.bert.encoder.layer.2.attention.output.dense.bias', 'bert.bert_model.bert.encoder.layer.2.attention.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.2.attention.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.2.intermediate.dense.weight', 'bert.bert_model.bert.encoder.layer.2.intermediate.dense.bias', 'bert.bert_model.bert.encoder.layer.2.output.dense.weight', 'bert.bert_model.bert.encoder.layer.2.output.dense.bias', 'bert.bert_model.bert.encoder.layer.2.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.2.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.3.attention.self.query.weight', 'bert.bert_model.bert.encoder.layer.3.attention.self.query.bias', 'bert.bert_model.bert.encoder.layer.3.attention.self.key.weight', 'bert.bert_model.bert.encoder.layer.3.attention.self.key.bias', 'bert.bert_model.bert.encoder.layer.3.attention.self.value.weight', 'bert.bert_model.bert.encoder.layer.3.attention.self.value.bias', 'bert.bert_model.bert.encoder.layer.3.attention.output.dense.weight', 'bert.bert_model.bert.encoder.layer.3.attention.output.dense.bias', 'bert.bert_model.bert.encoder.layer.3.attention.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.3.attention.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.3.intermediate.dense.weight', 'bert.bert_model.bert.encoder.layer.3.intermediate.dense.bias', 'bert.bert_model.bert.encoder.layer.3.output.dense.weight', 'bert.bert_model.bert.encoder.layer.3.output.dense.bias', 'bert.bert_model.bert.encoder.layer.3.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.3.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.4.attention.self.query.weight', 'bert.bert_model.bert.encoder.layer.4.attention.self.query.bias', 'bert.bert_model.bert.encoder.layer.4.attention.self.key.weight', 'bert.bert_model.bert.encoder.layer.4.attention.self.key.bias', 'bert.bert_model.bert.encoder.layer.4.attention.self.value.weight', 'bert.bert_model.bert.encoder.layer.4.attention.self.value.bias', 'bert.bert_model.bert.encoder.layer.4.attention.output.dense.weight', 'bert.bert_model.bert.encoder.layer.4.attention.output.dense.bias', 'bert.bert_model.bert.encoder.layer.4.attention.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.4.attention.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.4.intermediate.dense.weight', 'bert.bert_model.bert.encoder.layer.4.intermediate.dense.bias', 'bert.bert_model.bert.encoder.layer.4.output.dense.weight', 'bert.bert_model.bert.encoder.layer.4.output.dense.bias', 'bert.bert_model.bert.encoder.layer.4.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.4.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.5.attention.self.query.weight', 'bert.bert_model.bert.encoder.layer.5.attention.self.query.bias', 'bert.bert_model.bert.encoder.layer.5.attention.self.key.weight', 'bert.bert_model.bert.encoder.layer.5.attention.self.key.bias', 'bert.bert_model.bert.encoder.layer.5.attention.self.value.weight', 'bert.bert_model.bert.encoder.layer.5.attention.self.value.bias', 'bert.bert_model.bert.encoder.layer.5.attention.output.dense.weight', 'bert.bert_model.bert.encoder.layer.5.attention.output.dense.bias', 'bert.bert_model.bert.encoder.layer.5.attention.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.5.attention.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.5.intermediate.dense.weight', 'bert.bert_model.bert.encoder.layer.5.intermediate.dense.bias', 'bert.bert_model.bert.encoder.layer.5.output.dense.weight', 'bert.bert_model.bert.encoder.layer.5.output.dense.bias', 'bert.bert_model.bert.encoder.layer.5.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.5.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.6.attention.self.query.weight', 'bert.bert_model.bert.encoder.layer.6.attention.self.query.bias', 'bert.bert_model.bert.encoder.layer.6.attention.self.key.weight', 'bert.bert_model.bert.encoder.layer.6.attention.self.key.bias', 'bert.bert_model.bert.encoder.layer.6.attention.self.value.weight', 'bert.bert_model.bert.encoder.layer.6.attention.self.value.bias', 'bert.bert_model.bert.encoder.layer.6.attention.output.dense.weight', 'bert.bert_model.bert.encoder.layer.6.attention.output.dense.bias', 'bert.bert_model.bert.encoder.layer.6.attention.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.6.attention.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.6.intermediate.dense.weight', 'bert.bert_model.bert.encoder.layer.6.intermediate.dense.bias', 'bert.bert_model.bert.encoder.layer.6.output.dense.weight', 'bert.bert_model.bert.encoder.layer.6.output.dense.bias', 'bert.bert_model.bert.encoder.layer.6.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.6.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.7.attention.self.query.weight', 'bert.bert_model.bert.encoder.layer.7.attention.self.query.bias', 'bert.bert_model.bert.encoder.layer.7.attention.self.key.weight', 'bert.bert_model.bert.encoder.layer.7.attention.self.key.bias', 'bert.bert_model.bert.encoder.layer.7.attention.self.value.weight', 'bert.bert_model.bert.encoder.layer.7.attention.self.value.bias', 'bert.bert_model.bert.encoder.layer.7.attention.output.dense.weight', 'bert.bert_model.bert.encoder.layer.7.attention.output.dense.bias', 'bert.bert_model.bert.encoder.layer.7.attention.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.7.attention.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.7.intermediate.dense.weight', 'bert.bert_model.bert.encoder.layer.7.intermediate.dense.bias', 'bert.bert_model.bert.encoder.layer.7.output.dense.weight', 'bert.bert_model.bert.encoder.layer.7.output.dense.bias', 'bert.bert_model.bert.encoder.layer.7.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.7.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.8.attention.self.query.weight', 'bert.bert_model.bert.encoder.layer.8.attention.self.query.bias', 'bert.bert_model.bert.encoder.layer.8.attention.self.key.weight', 'bert.bert_model.bert.encoder.layer.8.attention.self.key.bias', 'bert.bert_model.bert.encoder.layer.8.attention.self.value.weight', 'bert.bert_model.bert.encoder.layer.8.attention.self.value.bias', 'bert.bert_model.bert.encoder.layer.8.attention.output.dense.weight', 'bert.bert_model.bert.encoder.layer.8.attention.output.dense.bias', 'bert.bert_model.bert.encoder.layer.8.attention.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.8.attention.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.8.intermediate.dense.weight', 'bert.bert_model.bert.encoder.layer.8.intermediate.dense.bias', 'bert.bert_model.bert.encoder.layer.8.output.dense.weight', 'bert.bert_model.bert.encoder.layer.8.output.dense.bias', 'bert.bert_model.bert.encoder.layer.8.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.8.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.9.attention.self.query.weight', 'bert.bert_model.bert.encoder.layer.9.attention.self.query.bias', 'bert.bert_model.bert.encoder.layer.9.attention.self.key.weight', 'bert.bert_model.bert.encoder.layer.9.attention.self.key.bias', 'bert.bert_model.bert.encoder.layer.9.attention.self.value.weight', 'bert.bert_model.bert.encoder.layer.9.attention.self.value.bias', 'bert.bert_model.bert.encoder.layer.9.attention.output.dense.weight', 'bert.bert_model.bert.encoder.layer.9.attention.output.dense.bias', 'bert.bert_model.bert.encoder.layer.9.attention.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.9.attention.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.9.intermediate.dense.weight', 'bert.bert_model.bert.encoder.layer.9.intermediate.dense.bias', 'bert.bert_model.bert.encoder.layer.9.output.dense.weight', 'bert.bert_model.bert.encoder.layer.9.output.dense.bias', 'bert.bert_model.bert.encoder.layer.9.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.9.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.10.attention.self.query.weight', 'bert.bert_model.bert.encoder.layer.10.attention.self.query.bias', 'bert.bert_model.bert.encoder.layer.10.attention.self.key.weight', 'bert.bert_model.bert.encoder.layer.10.attention.self.key.bias', 'bert.bert_model.bert.encoder.layer.10.attention.self.value.weight', 'bert.bert_model.bert.encoder.layer.10.attention.self.value.bias', 'bert.bert_model.bert.encoder.layer.10.attention.output.dense.weight', 'bert.bert_model.bert.encoder.layer.10.attention.output.dense.bias', 'bert.bert_model.bert.encoder.layer.10.attention.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.10.attention.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.10.intermediate.dense.weight', 'bert.bert_model.bert.encoder.layer.10.intermediate.dense.bias', 'bert.bert_model.bert.encoder.layer.10.output.dense.weight', 'bert.bert_model.bert.encoder.layer.10.output.dense.bias', 'bert.bert_model.bert.encoder.layer.10.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.10.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.11.attention.self.query.weight', 'bert.bert_model.bert.encoder.layer.11.attention.self.query.bias', 'bert.bert_model.bert.encoder.layer.11.attention.self.key.weight', 'bert.bert_model.bert.encoder.layer.11.attention.self.key.bias', 'bert.bert_model.bert.encoder.layer.11.attention.self.value.weight', 'bert.bert_model.bert.encoder.layer.11.attention.self.value.bias', 'bert.bert_model.bert.encoder.layer.11.attention.output.dense.weight', 'bert.bert_model.bert.encoder.layer.11.attention.output.dense.bias', 'bert.bert_model.bert.encoder.layer.11.attention.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.11.attention.output.LayerNorm.bias', 'bert.bert_model.bert.encoder.layer.11.intermediate.dense.weight', 'bert.bert_model.bert.encoder.layer.11.intermediate.dense.bias', 'bert.bert_model.bert.encoder.layer.11.output.dense.weight', 'bert.bert_model.bert.encoder.layer.11.output.dense.bias', 'bert.bert_model.bert.encoder.layer.11.output.LayerNorm.weight', 'bert.bert_model.bert.encoder.layer.11.output.LayerNorm.bias', 'bert.bert_model.bert.pooler.dense.weight', 'bert.bert_model.bert.pooler.dense.bias', 'bert.bert_model.classifier.weight', 'bert.bert_model.classifier.bias', 'bert.fc.weight', 'bert.fc.bias']
+2021-08-24 22:04:31 modeling_utils.py INFO Weights from pretrained model not used in BertModelForMedical: ['bert.embeddings.word_embeddings.weight', 'bert.embeddings.position_embeddings.weight', 'bert.embeddings.token_type_embeddings.weight', 'bert.embeddings.LayerNorm.weight', 'bert.embeddings.LayerNorm.bias', 'bert.encoder.layer.0.attention.self.query.weight', 'bert.encoder.layer.0.attention.self.query.bias', 'bert.encoder.layer.0.attention.self.key.weight', 'bert.encoder.layer.0.attention.self.key.bias', 'bert.encoder.layer.0.attention.self.value.weight', 'bert.encoder.layer.0.attention.self.value.bias', 'bert.encoder.layer.0.attention.output.dense.weight', 'bert.encoder.layer.0.attention.output.dense.bias', 'bert.encoder.layer.0.attention.output.LayerNorm.weight', 'bert.encoder.layer.0.attention.output.LayerNorm.bias', 'bert.encoder.layer.0.intermediate.dense.weight', 'bert.encoder.layer.0.intermediate.dense.bias', 'bert.encoder.layer.0.output.dense.weight', 'bert.encoder.layer.0.output.dense.bias', 'bert.encoder.layer.0.output.LayerNorm.weight', 'bert.encoder.layer.0.output.LayerNorm.bias', 'bert.encoder.layer.1.attention.self.query.weight', 'bert.encoder.layer.1.attention.self.query.bias', 'bert.encoder.layer.1.attention.self.key.weight', 'bert.encoder.layer.1.attention.self.key.bias', 'bert.encoder.layer.1.attention.self.value.weight', 'bert.encoder.layer.1.attention.self.value.bias', 'bert.encoder.layer.1.attention.output.dense.weight', 'bert.encoder.layer.1.attention.output.dense.bias', 'bert.encoder.layer.1.attention.output.LayerNorm.weight', 'bert.encoder.layer.1.attention.output.LayerNorm.bias', 'bert.encoder.layer.1.intermediate.dense.weight', 'bert.encoder.layer.1.intermediate.dense.bias', 'bert.encoder.layer.1.output.dense.weight', 'bert.encoder.layer.1.output.dense.bias', 'bert.encoder.layer.1.output.LayerNorm.weight', 'bert.encoder.layer.1.output.LayerNorm.bias', 'bert.encoder.layer.2.attention.self.query.weight', 'bert.encoder.layer.2.attention.self.query.bias', 'bert.encoder.layer.2.attention.self.key.weight', 'bert.encoder.layer.2.attention.self.key.bias', 'bert.encoder.layer.2.attention.self.value.weight', 'bert.encoder.layer.2.attention.self.value.bias', 'bert.encoder.layer.2.attention.output.dense.weight', 'bert.encoder.layer.2.attention.output.dense.bias', 'bert.encoder.layer.2.attention.output.LayerNorm.weight', 'bert.encoder.layer.2.attention.output.LayerNorm.bias', 'bert.encoder.layer.2.intermediate.dense.weight', 'bert.encoder.layer.2.intermediate.dense.bias', 'bert.encoder.layer.2.output.dense.weight', 'bert.encoder.layer.2.output.dense.bias', 'bert.encoder.layer.2.output.LayerNorm.weight', 'bert.encoder.layer.2.output.LayerNorm.bias', 'bert.encoder.layer.3.attention.self.query.weight', 'bert.encoder.layer.3.attention.self.query.bias', 'bert.encoder.layer.3.attention.self.key.weight', 'bert.encoder.layer.3.attention.self.key.bias', 'bert.encoder.layer.3.attention.self.value.weight', 'bert.encoder.layer.3.attention.self.value.bias', 'bert.encoder.layer.3.attention.output.dense.weight', 'bert.encoder.layer.3.attention.output.dense.bias', 'bert.encoder.layer.3.attention.output.LayerNorm.weight', 'bert.encoder.layer.3.attention.output.LayerNorm.bias', 'bert.encoder.layer.3.intermediate.dense.weight', 'bert.encoder.layer.3.intermediate.dense.bias', 'bert.encoder.layer.3.output.dense.weight', 'bert.encoder.layer.3.output.dense.bias', 'bert.encoder.layer.3.output.LayerNorm.weight', 'bert.encoder.layer.3.output.LayerNorm.bias', 'bert.encoder.layer.4.attention.self.query.weight', 'bert.encoder.layer.4.attention.self.query.bias', 'bert.encoder.layer.4.attention.self.key.weight', 'bert.encoder.layer.4.attention.self.key.bias', 'bert.encoder.layer.4.attention.self.value.weight', 'bert.encoder.layer.4.attention.self.value.bias', 'bert.encoder.layer.4.attention.output.dense.weight', 'bert.encoder.layer.4.attention.output.dense.bias', 'bert.encoder.layer.4.attention.output.LayerNorm.weight', 'bert.encoder.layer.4.attention.output.LayerNorm.bias', 'bert.encoder.layer.4.intermediate.dense.weight', 'bert.encoder.layer.4.intermediate.dense.bias', 'bert.encoder.layer.4.output.dense.weight', 'bert.encoder.layer.4.output.dense.bias', 'bert.encoder.layer.4.output.LayerNorm.weight', 'bert.encoder.layer.4.output.LayerNorm.bias', 'bert.encoder.layer.5.attention.self.query.weight', 'bert.encoder.layer.5.attention.self.query.bias', 'bert.encoder.layer.5.attention.self.key.weight', 'bert.encoder.layer.5.attention.self.key.bias', 'bert.encoder.layer.5.attention.self.value.weight', 'bert.encoder.layer.5.attention.self.value.bias', 'bert.encoder.layer.5.attention.output.dense.weight', 'bert.encoder.layer.5.attention.output.dense.bias', 'bert.encoder.layer.5.attention.output.LayerNorm.weight', 'bert.encoder.layer.5.attention.output.LayerNorm.bias', 'bert.encoder.layer.5.intermediate.dense.weight', 'bert.encoder.layer.5.intermediate.dense.bias', 'bert.encoder.layer.5.output.dense.weight', 'bert.encoder.layer.5.output.dense.bias', 'bert.encoder.layer.5.output.LayerNorm.weight', 'bert.encoder.layer.5.output.LayerNorm.bias', 'bert.encoder.layer.6.attention.self.query.weight', 'bert.encoder.layer.6.attention.self.query.bias', 'bert.encoder.layer.6.attention.self.key.weight', 'bert.encoder.layer.6.attention.self.key.bias', 'bert.encoder.layer.6.attention.self.value.weight', 'bert.encoder.layer.6.attention.self.value.bias', 'bert.encoder.layer.6.attention.output.dense.weight', 'bert.encoder.layer.6.attention.output.dense.bias', 'bert.encoder.layer.6.attention.output.LayerNorm.weight', 'bert.encoder.layer.6.attention.output.LayerNorm.bias', 'bert.encoder.layer.6.intermediate.dense.weight', 'bert.encoder.layer.6.intermediate.dense.bias', 'bert.encoder.layer.6.output.dense.weight', 'bert.encoder.layer.6.output.dense.bias', 'bert.encoder.layer.6.output.LayerNorm.weight', 'bert.encoder.layer.6.output.LayerNorm.bias', 'bert.encoder.layer.7.attention.self.query.weight', 'bert.encoder.layer.7.attention.self.query.bias', 'bert.encoder.layer.7.attention.self.key.weight', 'bert.encoder.layer.7.attention.self.key.bias', 'bert.encoder.layer.7.attention.self.value.weight', 'bert.encoder.layer.7.attention.self.value.bias', 'bert.encoder.layer.7.attention.output.dense.weight', 'bert.encoder.layer.7.attention.output.dense.bias', 'bert.encoder.layer.7.attention.output.LayerNorm.weight', 'bert.encoder.layer.7.attention.output.LayerNorm.bias', 'bert.encoder.layer.7.intermediate.dense.weight', 'bert.encoder.layer.7.intermediate.dense.bias', 'bert.encoder.layer.7.output.dense.weight', 'bert.encoder.layer.7.output.dense.bias', 'bert.encoder.layer.7.output.LayerNorm.weight', 'bert.encoder.layer.7.output.LayerNorm.bias', 'bert.encoder.layer.8.attention.self.query.weight', 'bert.encoder.layer.8.attention.self.query.bias', 'bert.encoder.layer.8.attention.self.key.weight', 'bert.encoder.layer.8.attention.self.key.bias', 'bert.encoder.layer.8.attention.self.value.weight', 'bert.encoder.layer.8.attention.self.value.bias', 'bert.encoder.layer.8.attention.output.dense.weight', 'bert.encoder.layer.8.attention.output.dense.bias', 'bert.encoder.layer.8.attention.output.LayerNorm.weight', 'bert.encoder.layer.8.attention.output.LayerNorm.bias', 'bert.encoder.layer.8.intermediate.dense.weight', 'bert.encoder.layer.8.intermediate.dense.bias', 'bert.encoder.layer.8.output.dense.weight', 'bert.encoder.layer.8.output.dense.bias', 'bert.encoder.layer.8.output.LayerNorm.weight', 'bert.encoder.layer.8.output.LayerNorm.bias', 'bert.encoder.layer.9.attention.self.query.weight', 'bert.encoder.layer.9.attention.self.query.bias', 'bert.encoder.layer.9.attention.self.key.weight', 'bert.encoder.layer.9.attention.self.key.bias', 'bert.encoder.layer.9.attention.self.value.weight', 'bert.encoder.layer.9.attention.self.value.bias', 'bert.encoder.layer.9.attention.output.dense.weight', 'bert.encoder.layer.9.attention.output.dense.bias', 'bert.encoder.layer.9.attention.output.LayerNorm.weight', 'bert.encoder.layer.9.attention.output.LayerNorm.bias', 'bert.encoder.layer.9.intermediate.dense.weight', 'bert.encoder.layer.9.intermediate.dense.bias', 'bert.encoder.layer.9.output.dense.weight', 'bert.encoder.layer.9.output.dense.bias', 'bert.encoder.layer.9.output.LayerNorm.weight', 'bert.encoder.layer.9.output.LayerNorm.bias', 'bert.encoder.layer.10.attention.self.query.weight', 'bert.encoder.layer.10.attention.self.query.bias', 'bert.encoder.layer.10.attention.self.key.weight', 'bert.encoder.layer.10.attention.self.key.bias', 'bert.encoder.layer.10.attention.self.value.weight', 'bert.encoder.layer.10.attention.self.value.bias', 'bert.encoder.layer.10.attention.output.dense.weight', 'bert.encoder.layer.10.attention.output.dense.bias', 'bert.encoder.layer.10.attention.output.LayerNorm.weight', 'bert.encoder.layer.10.attention.output.LayerNorm.bias', 'bert.encoder.layer.10.intermediate.dense.weight', 'bert.encoder.layer.10.intermediate.dense.bias', 'bert.encoder.layer.10.output.dense.weight', 'bert.encoder.layer.10.output.dense.bias', 'bert.encoder.layer.10.output.LayerNorm.weight', 'bert.encoder.layer.10.output.LayerNorm.bias', 'bert.encoder.layer.11.attention.self.query.weight', 'bert.encoder.layer.11.attention.self.query.bias', 'bert.encoder.layer.11.attention.self.key.weight', 'bert.encoder.layer.11.attention.self.key.bias', 'bert.encoder.layer.11.attention.self.value.weight', 'bert.encoder.layer.11.attention.self.value.bias', 'bert.encoder.layer.11.attention.output.dense.weight', 'bert.encoder.layer.11.attention.output.dense.bias', 'bert.encoder.layer.11.attention.output.LayerNorm.weight', 'bert.encoder.layer.11.attention.output.LayerNorm.bias', 'bert.encoder.layer.11.intermediate.dense.weight', 'bert.encoder.layer.11.intermediate.dense.bias', 'bert.encoder.layer.11.output.dense.weight', 'bert.encoder.layer.11.output.dense.bias', 'bert.encoder.layer.11.output.LayerNorm.weight', 'bert.encoder.layer.11.output.LayerNorm.bias', 'bert.pooler.dense.weight', 'bert.pooler.dense.bias']
+2021-08-24 22:04:42 train.py INFO ***** Running training *****
+2021-08-24 22:04:42 train.py INFO   Num examples = 110541
+2021-08-24 22:04:42 train.py INFO   Num Epochs = 5
+2021-08-24 22:04:42 train.py INFO   batch size = 32
+2021-08-24 22:04:42 train.py INFO   Num batches = 17275
+2021-08-24 22:04:42 train.py INFO   device: cuda
+2021-08-24 22:04:42 train.py INFO Epoch [1/5]
+2021-08-24 22:04:42 train.py INFO tokens: [['[CLS]', '呕', '吐', '调', '理', '饭', '后', '酒', '后', '呕', '吐', '[SEP]'], ['[CLS]', '感', '冒', '治', '疗', '感', '冒', '每', '周', '感', '冒', '吃', '感', '冒', '药', '无', '论', '是', '冬', '天', '夏', '天', '每', '次', '感', '冒', '症', '状', '流', '清', '鼻', '涕', '打', '喷', '嚏', '鼻', '腔', '呼', '出', '空', '气', '感', '觉', '热', '症', '状', '表', '现', '[SEP]'], ['[CLS]', '治', '疗', '九', '个', '月', '宝', '宝', '鼻', '子', '通', '气', '怎', '么', '回', '事', '孩', '子', '不', '听', '话', '哭', '闹', '不', '休', '医', '院', '检', '查', '没', '用', '请', '问', '治', '疗', '九', '个', '月', '宝', '宝', '鼻', '子', '通', '气', '[SEP]'], ['[CLS]', '肠', '胃', '炎', '过', '后', '胃', '疼', '怎', '么', '回', '事', '去', '年', '急', '性', '肠', '胃', '炎', '吃', '完', '晚', '饭', '消', '化', '晚', '饭', '吃', '有', '时', '候', '不', '吃', '吃', '完', '消', '化', '油', '腻', '不', '好', '吸', '收', '食', '物', '吃', '吃', '完', '总', '胃', '疼', '这', '是', '怎', '么', '回', '事', '[SEP]'], ['[CLS]', '呕', '吐', '血', '压', '1901', '##10', '舒', '服', '情', '况', '两', '个', '月', '早', '晨', '头', '疼', '担', '心', '情', '况', '发', '生', '时', '间', '长', '治', '疗', '请', '问', '呕', '吐', '血', '压', '1901', '##10', '[SEP]'], ['[CLS]', '高', '血', '压', '心', '跳', '慢', '是', '原', '因', '舒', '服', '情', '况', '两', '个', '月', '早', '晨', '头', '疼', '担', '心', '情', '况', '发', '生', '时', '间', '长', '治', '疗', '请', '问', '高', '血', '压', '心', '跳', '慢', '是', '原', '因', '[SEP]'], ['[CLS]', '孩', '子', '中', '耳', '炎', '耳', '朵', '流', '黄', '水', '诊', '治', '男', '宝', '刚', '满', '岁', '几', '天', '孩', '子', '耳', '朵', '疼', '发', '现', '耳', '屎', '脓', '状', '黄', '伴', '有', '低', '烧', '请', '问', '孩', '子', '中', '耳', '炎', '耳', '朵', '流', '黄', '水', '诊', '治', '[SEP]'], ['[CLS]', '患', '肾', '水', '肿', '身', '体', '影', '响', '怎', '么', '回', '事', '晚', '上', '休', '息', '挺', '早', '上', '脸', '老', '肿', '上', '午', '好', '好', '点', '脚', '肿', '医', '生', '医', '生', '说', '患', '肾', '水', '肿', '[SEP]'], ['[CLS]', '心', '脏', '早', '博', '咳', '嗽', '总', '不', '见', '2013', '年', '11', '月', '咳', '嗽', '淮', '安', '医', '院', '[SEP]'], ['[CLS]', '小', '儿', '扁', '桃', '体', '炎', '哭', '闹', '饮', '食', '事', '项', '男', '孩', '子', '岁', '说', '嗓', '子', '喝', '水', '疼', '发', '现', '伴', '有', '轻', '微', '咳', '嗽', '好', '像', '低', '烧', '没', '退', '请', '问', '小', '儿', '扁', '桃', '体', '炎', '哭', '闹', '饮', '食', '事', '项', '[SEP]'], ['[CLS]', '分', '辨', '先', '天', '性', '耳', '前', '瘘', '管', '类', '型', '身', '体', '不', '适', '感', '觉', '没', '用', '请', '问', '分', '辨', '先', '天', '性', '耳', '前', '瘘', '管', '类', '型', '[SEP]'], ['[CLS]', '干', '燥', '综', '合', '征', '伴', '随', '桥', '本', '氏', '甲', '减', '[SEP]'], ['[CLS]', '长', '期', '手', '淫', '长', '期', '无', '性', '生', '活', '导', '致', '早', '泄', '[SEP]'], ['[CLS]', '过', '敏', '性', '哮', '喘', '怀', '孕', '生', '子', '过', '敏', '性', '哮', '喘', '结', '婚', '老', '公', '说', '想', '要', '孩', '子', '挺', '想', '要', '想', '过', '敏', '性', '哮', '喘', '怀', '孕', '生', '子', '[SEP]'], ['[CLS]', '白', '癜', '风', '11', '岁', '女', '孩', '眼', '睑', '部', '位', '白', '癜', '风', '治', '疗', '[SEP]'], ['[CLS]', '阴', '道', '痒', '有', '白', '色', '点', '点', '检', '查', '过', 'nu', '##m', '次', '说', '是', '霉', '菌', '好', '了', '有', '半', '个', '月', '又', '痒', '了', '[SEP]'], ['[CLS]', '宝', '宝', '岁', '拉', '肚', '子', '五', '次', '治', '疗', '宝', '宝', '岁', '拉', '肚', '子', '五', '次', '干', '呕', '吐', '出', '来', '奶', '发', '烧', '温', '度', '38', '度', '服', '美', '林', '后', '退', '热', '高', '烧', '37', '度', '多', '感', '冒', '流', '鼻', '涕', '症', '状', '查', '大', '便', '有', '图', '问', '下', '病', '[SEP]'], ['[CLS]', '医', '生', '你', '好', '我', '有', '了', '差', '不', '多', '十', '年', '的', '手', '淫', '史', '了', '现', '在', '有', '手', '脚', '冰', '凉', '的', '症', '状', '夏', '天', '也', '一', '样', '这', '是', '肾', '阳', '虚', '还', '是', '阴', '虚', '又', '该', '用', '什', '么', '药', '物', '呢', '又', '要', '注', '意', '什', '么', '[SEP]'], ['[CLS]', '咳', '嗽', '传', '染', '肺', '结', '核', '两', '天', '身', '体', '特', '别', '舒', '服', '情', '况', '很', '久', '咳', '嗽', '医', '院', '查', '找', '资', '料', '情', '况', '请', '问', '咳', '嗽', '传', '染', '肺', '结', '核', '[SEP]'], ['[CLS]', '初', '起', '时', '水', '疱', '疹', '痒', '破', '皮', '湿', '疹', '初', '起', '时', '水', '疱', '疹', '痒', '破', '皮', '医', '院', '说', '湿', '疹', '[SEP]'], ['[CLS]', '男', '宝', '宝', '三', '岁', '大', '便', '拉', '身', '上', '怎', '么', '回', '事', '男', '宝', '宝', '三', '岁', '大', '便', '拉', '身', '上', '说', '洗', '屁', '股', '发', '觉', '屁', '眼', '有', '块', '肉', '硬', '硬', '怎', '么', '回', '事', '[SEP]'], ['[CLS]', '高', '血', '压', '吃', '治', '疗', '老', '公', '血', '压', '下', '降', '变', '作', '高', '血', '压', '高', '血', '压', '吃', '治', '疗', '[SEP]'], ['[CLS]', '滴', '虫', '性', '阴', '道', '炎', '防', '治', '朋', '友', '健', '康', '检', '查', '时', '检', '查', '出', '患', '滴', '虫', '性', '阴', '道', '炎', '身', '体', '带', '给', '不', '便', '痛', '苦', '难', '过', '会', '得', '病', '滴', '虫', '性', '阴', '道', '炎', '综', '合', '防', '治', '请', '医', '生', '治', '疗', '诧', '异', '[SEP]'], ['[CLS]', '头', '痛', '疾', '病', '表', '现', '头', '痛', '血', '管', '痉', '挛', '手', '发', '抖', '流', '眼', '泪', '说', '话', '走', '路', '稳', '看', '过', '省', '医', '院', '华', '西', '神', '经', '内', '外', '科', '专', '家', '门', '诊', '开', '通', '天', '口', '服', '液', '银', '杏', '蜜', '环', '口', '服', '液', '做', '[UNK]', '共', '振', '检', '查', '脑', '内', '病', '变', '[SEP]'], ['[CLS]', '流', '产', '恢', '复', '检', '查', '哪', '些', '项', '目', '因', '素', '流', '产', '在', '家', '恢', '复', '身', '体', '没', '什', '么', '太', '大', '感', '觉', '流', '产', '恢', '复', '检', '查', '哪', '些', '项', '目', '[SEP]'], ['[CLS]', '成', '人', '患', '手', '足', '口', '病', '症', '状', '[SEP]'], ['[CLS]', '心', '电', '图', '没', '做', '过', 'ct', '拍', '的', '应', '该', '是', '喉', '咙', '部', '分', '我', '妈', '觉', '得', '我', '是', '嗓', '子', '的', '问', '题', '所', '以', '啥', '也', '没', '查', '出', '来', '[SEP]'], ['[CLS]', '甲', '减', '临', '床', '症', '状', '病', '情', '描', '述', '发', '病', '时', '间', '主', '要', '症', '状', '症', '状', '变', '化', '甲', '减', '临', '床', '症', '状', '[SEP]'], ['[CLS]', '幼', '儿', '扁', '桃', '体', '炎', '症', '难', '受', '怎', '样', '治', '效', '果', '我', '家', '孩', '子', '男', '宝', '宝', '岁', '嗓', '子', '眼', '有', '点', '痛', '察', '觉', '到', '说', '话', '声', '音', '沙', '哑', '伴', '有', '低', '烧', '请', '问', '幼', '儿', '扁', '桃', '体', '炎', '症', '难', '受', '怎', '样', '治', '效', '果', '[SEP]'], ['[CLS]', '间', '不', '想', '吃', '饭', '肚', '子', '疼', '分', '不', '清', '胃', '疼', '肚', '子', '发', '烧', '咳', '嗽', '疼', '痛', '有', '时', '候', '想', '厕', '所', '有', '时', '候', '疼', '痛', '晚', '上', '睡', '觉', '疼', '请', '问', '间', '不', '想', '吃', '饭', '[SEP]'], ['[CLS]', '医', '院', '诊', '断', '过', '敏', '性', '皮', '炎', '家', '族', '史', '病', '史', '五', '月', '患', '湿', '疹', '用', '药', '好', '转', '腿', '肚', '感', '染', '愈', '合', '过', '敏', '性', '皮', '炎', '瘙', '痒', '肿', '胀', '十', '天', '症', '状', '加', '剧', '过', '敏', '性', '皮', '炎', '痒', '受', '不', '了', '病', '情', '加', '剧', '[SEP]'], ['[CLS]', '专', '治', '癫', '痫', '病', '医', '院', '推', '荐', '癫', '痫', '病', '复', '发', '四', '肢', '麻', '醉', '意', '识', '模', '糊', '口', '吐', '白', '沫', '[SEP]']]
+ 
+2021-08-24 22:04:42 train.py INFO token_ids: tensor([[ 101, 1445, 1402,  ...,    0,    0,    0],
+        [ 101, 2697, 1088,  ...,    0,    0,    0],
+        [ 101, 3780, 4545,  ...,    0,    0,    0],
+        ...,
+        [ 101, 7313,  679,  ...,    0,    0,    0],
+        [ 101, 1278, 7368,  ...,    0,    0,    0],
+        [ 101,  683, 3780,  ...,    0,    0,    0]])
+ 
+2021-08-24 22:04:42 train.py INFO token_ids shape: torch.Size([32, 64])
+ 
+2021-08-24 22:04:42 train.py INFO attention_mask: tensor([[1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        ...,
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0]])
+
+2021-08-24 22:04:42 train.py INFO token_type_ids: tensor([[0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0],
+        ...,
+        [0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0]])
+
+2021-08-24 22:04:42 train.py INFO labels: tensor([5, 7, 6, 5, 3, 3, 4, 9, 7, 4, 4, 8, 0, 7, 1, 2, 6, 0, 7, 1, 6, 3, 2, 9,
+        2, 6, 4, 8, 4, 5, 1, 9])
+
+2021-08-24 22:04:42 train.py INFO labels shape: torch.Size([32])
+
+2021-08-24 22:11:34 train.py INFO evaluate....................
+2021-08-24 22:12:33 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9258    0.9084    0.9170      1648
+         皮肤科     0.9233    0.9177    0.9205      1312
+          妇科     0.8546    0.9587    0.9037      1429
+       心血管内科     0.8978    0.8483    0.8723      1325
+        耳鼻喉科     0.9656    0.9006    0.9320      1308
+        消化内科     0.9050    0.8590    0.8814      1319
+        小儿内科     0.6441    0.8300    0.7253      1435
+        呼吸内科     0.8118    0.7464    0.7777      1439
+        内分泌科     0.8853    0.8786    0.8819      1318
+        神经内科     0.9614    0.8154    0.8824      1284
+
+    accuracy                         0.8668     13817
+   macro avg     0.8775    0.8663    0.8694     13817
+weighted avg     0.8756    0.8668    0.8687     13817
+
+2021-08-24 22:12:33 train.py INFO Confusion matrix: 
+[[1497   23   58    8    2   10   17   17   13    3]
+ [  44 1204    8    2    2    0   23    5   23    1]
+ [  17    2 1370    5    1    5   18    3    8    0]
+ [   9    7   11 1124    2   15   53   46   38   20]
+ [   5    1    2    1 1178    1  100   19    1    0]
+ [  13    9   52    7    0 1133   68   26   10    1]
+ [   2    8   25   11    9   49 1191  103   35    2]
+ [   6    7   10   20   23   13  274 1074    8    4]
+ [  10   11   42   30    1   14   32    9 1158   11]
+ [  14   32   25   44    2   12   73   21   14 1047]]
+2021-08-24 22:12:33 train.py INFO saving model..........
+2021-08-24 22:12:35 train.py INFO Iter:1000, Train Loss:0.1122, Train Acc:81.25%, Val Loss:0.0778, Val Acc:86.68%, Time:0:08:03 *
+2021-08-24 22:19:18 train.py INFO evaluate....................
+2021-08-24 22:20:17 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9428    0.9308    0.9368      1648
+         皮肤科     0.9721    0.9299    0.9505      1312
+          妇科     0.8534    0.9657    0.9061      1429
+       心血管内科     0.9332    0.8536    0.8916      1325
+        耳鼻喉科     0.9720    0.9021    0.9358      1308
+        消化内科     0.9260    0.8916    0.9085      1319
+        小儿内科     0.7678    0.7652    0.7665      1435
+        呼吸内科     0.8131    0.8103    0.8117      1439
+        内分泌科     0.8184    0.9302    0.8707      1318
+        神经内科     0.9302    0.9128    0.9214      1284
+
+    accuracy                         0.8890     13817
+   macro avg     0.8929    0.8892    0.8900     13817
+weighted avg     0.8919    0.8890    0.8893     13817
+
+2021-08-24 22:20:17 train.py INFO Confusion matrix: 
+[[1534   11   67    3    2    4    5    1   17    4]
+ [  26 1220   23    1    2    1    7    3   24    5]
+ [  17    2 1380    1    1    4    5    2   16    1]
+ [   6    1   21 1131    0   12   21   41   56   36]
+ [   3    0    9    1 1180    2   66   40    4    3]
+ [  12    0   32    6    0 1176   43   12   27   11]
+ [   6    5   22   16   11   41 1098  154   70   12]
+ [   6    5   17   18   15   10  174 1166   21    7]
+ [   6    6   24   22    1   13    6    5 1226    9]
+ [  11    5   22   13    2    7    5   10   37 1172]]
+2021-08-24 22:20:17 train.py INFO saving model..........
+2021-08-24 22:20:19 train.py INFO Iter:2000, Train Loss:0.0035, Train Acc:93.75%, Val Loss:0.0446, Val Acc:88.90%, Time:0:15:47 *
+2021-08-24 22:27:03 train.py INFO evaluate....................
+2021-08-24 22:28:02 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9441    0.9527    0.9484      1648
+         皮肤科     0.8993    0.9802    0.9380      1312
+          妇科     0.9557    0.9209    0.9380      1429
+       心血管内科     0.9317    0.8642    0.8966      1325
+        耳鼻喉科     0.9663    0.8998    0.9319      1308
+        消化内科     0.9236    0.8893    0.9061      1319
+        小儿内科     0.7204    0.7812    0.7496      1435
+        呼吸内科     0.7909    0.8624    0.8251      1439
+        内分泌科     0.8909    0.9105    0.9006      1318
+        神经内科     0.9663    0.8715    0.9165      1284
+
+    accuracy                         0.8937     13817
+   macro avg     0.8989    0.8933    0.8951     13817
+weighted avg     0.8978    0.8937    0.8948     13817
+
+2021-08-24 22:28:02 train.py INFO Confusion matrix: 
+[[1570   28   19    0    5    1   17    0    6    2]
+ [   6 1286    2    0    2    1   15    0    0    0]
+ [  19   20 1316    4    2   17   26    5   14    6]
+ [  15   19    4 1145    0   14   33   25   52   18]
+ [   1    2    1    1 1177    2   73   49    2    0]
+ [  11    5    6    5    0 1173   98   14    6    1]
+ [   5    4    3    8    9   23 1121  224   35    3]
+ [   9   11    2   30   17   14  101 1241   11    3]
+ [   8   24   19   14    1   15   29    2 1200    6]
+ [  19   31    5   22    5   10   43    9   21 1119]]
+2021-08-24 22:28:02 train.py INFO saving model..........
+2021-08-24 22:28:04 train.py INFO Iter:3000, Train Loss:0.0752, Train Acc:81.25%, Val Loss:0.0429, Val Acc:89.37%, Time:0:23:32 *
+2021-08-24 22:31:09 train.py INFO Epoch [2/5]
+2021-08-24 22:31:10 train.py INFO tokens: [['[CLS]', '你', '好', '我', '说', '话', '快', '一', '点', '就', '咳', '嗽', '喉', '咙', '感', '觉', '有', '异', '物', '喉', '咙', '干', '[SEP]'], ['[CLS]', '神', '经', '炎', '吃', '阿', '胶', '糕', '神', '经', '炎', '吃', '阿', '胶', '糕', '睡', '眠', '不', '好', '睡', '过', '去', '作', '梦', '持', '继', '大', '半', '年', '时', '间', '想', '吃', '点', '阿', '胶', '糕', '稳', '定', '深', '度', '睡', '眠', '神', '经', '炎', '吃', '[SEP]'], ['[CLS]', '小', '孩', '儿', '中', '耳', '炎', '耳', '朵', '里', '黄', '水', '治', '疗', '我', '家', '女', '宝', '岁', '一', '周', '孩', '子', '说', '耳', '朵', '疼', '早', '上', '还', '会', '黄', '色', '液', '体', '流', '出', '食', '欲', '不', '好', '嗓', '子', '舒', '服', '请', '问', '小', '孩', '儿', '中', '耳', '炎', '耳', '朵', '里', '黄', '水', '治', '疗', '[SEP]'], ['[CLS]', '感', '冒', '咳', '嗽', '厉', '害', '治', '疗', '病', '情', '描', '述', '感', '冒', '20', '天', '咳', '嗽', '厉', '害', '咳', '嗽', '减', '轻', '咳', '嗽', '过', '后', '有', '白', '谈', '喉', '咙', '好', '像', '封', '住', '呼', '吸', '半', '分', '钟', '恢', '复', '治', '疗', '情', '况', '效', '果', '吃', '感', '冒', '药', '无', '效', '想', '得', '到', '告', '诉', '治', '疗', '谢', '谢', '[SEP]'], ['[CLS]', '白', '癜', '风', '11', '岁', '女', '孩', '眼', '睑', '部', '位', '白', '癜', '风', '治', '疗', '[SEP]'], ['[CLS]', '萎', '缩', '性', '胃', '炎', '胃', '下', '垂', '严', '不', '34', '岁', '怎', '么', '回', '事', '感', '觉', '恶', '心', '想', '吐', '胃', '部', '阴', '阴', '作', '痛', '灼', '热', '反', '酸', '症', '状', '医', '院', '看', '过', '一', '段', '时', '间', '犯', '请', '问', '萎', '缩', '性', '胃', '炎', '胃', '下', '垂', '严', '不', '[SEP]'], ['[CLS]', '路', '硝', '西', '泮', '中', '毒', '药', '治', '2010', '年', '发', '病', '肌', '张', '力', '高', '自', '主', '神', '经', '病', '研', '究', '所', '[SEP]'], ['[CLS]', '医', '生', '您', '好', '我', '之', '前', '在', '这', '个', '平', '台', '咨', '询', '过', '一', '位', '医', '生', '是', '上', '个', '月', '月', '底', '我', '有', '重', '要', '的', '考', '试', '撞', '上', '了', '月', '经', '想', '推', '迟', '月', '经', '那', '个', '医', '生', '建', '议', '我', '服', '用', '黄', '体', '酮', '胶', '囊', '每', '日', '一', '次', '一', '次', 'nu', '##m', '粒', '但', '是', '在', '我', '服', '用', '第', '四', '天', '的', '时', '候', '月', '经', '还', '是', '来', '了', '我', '就', '停', '用', '了', '但', '是', '这', '个', '月', '本', '该', '时', '间', '差', '不', '多', '该', '来', '月', '经', '还', '没', '有', '来', '是', '什', '么', '原', '因', '呢', '想', '咨', '询', '一', '下', '[SEP]'], ['[CLS]', '鼻', '子', '痒', '打', '喷', '嚏', '流', '鼻', '涕', '咳', '嗽', '帮', '我', '开', '内', '舒', '拿', '氯', '雷', '他', '定', '[SEP]'], ['[CLS]', '白', '癜', '风', '[SEP]'], ['[CLS]', '结', '节', '性', '甲', '状', '腺', '肿', '喉', '咙', '痛', '晚', '上', '睡', '午', '觉', '流', '汗', '喉', '咙', '舒', '服', '前', '几', '天', '去', '市', '医', '院', '仔', '细', '检', '查', '咽', '喉', '时', '发', '觉', '甲', '状', '腺', 'b', '超', '提', '示', '音', '说', '结', '节', '性', '甲', '状', '腺', '肿', '医', '生', '说', '建', '议', '先', '仔', '细', '观', '察', '留', '意', '定', '期', '检', '查', '担', '心', '在', '乎', '结', '节', '性', '甲', '状', '腺', '肿', '[SEP]'], ['[CLS]', '前', '列', '腺', '囊', '肿', '吃', '药', '缓', '解', '调', '理', '一', '年', '前', 'b', '超', '仔', '细', '检', '查', '前', '列', '腺', '囊', '肿', '医', '院', '开', '利', '尿', '消', '炎', '药', '药', '名', '忘', '一', '段', '时', '间', '间', '段', '性', '病', '发', '感', '觉', '尿', '频', '压', '迫', '感', '不', '想', '排', '斥', '药', '物', '期', '望', '物', '理', '救', '治', '想', '吃', '点', '药', '纾', '解', '症', '状', '[SEP]'], ['[CLS]', '龟', '头', '有', '麻', '木', '感', '微', '肿', '此', '前', '有', '撸', '管', '经', '历', '[SEP]'], ['[CLS]', '大', '夫', '你', '好', '最', '近', '房', '事', '一', '半', '就', '软', '了', '勃', '起', '困', '难', '勃', '起', '后', '也', '是', '半', '软', '半', '硬', '熬', '夜', '抽', '烟', '手', '淫', '[SEP]'], ['[CLS]', '胸', '闷', '气', '短', '咳', '嗽', '呼', '吸', '困', '难', '伴', '有', '哮', '鸣', '音', '怎', '么', '回', '事', '夏', '天', '胸', '闷', '气', '短', '呼', '吸', '困', '难', '咳', '嗽', '痰', '发', '病', '躺', '床', '只', '能', '站', '坐', '呼', '吸', '时', '有', '哮', '鸣', '音', '吃', '药', '后', '缓', '解', '几', '天', '还', '会', '反', '复', '五', '年', '六', '月', '十', '月', '天', '气', '热', '发', '病', '六', '月', '正', '好', '收', '割', '小', '麦', '天', '冷', '时', '侯', '现', '象', '[SEP]'], ['[CLS]', '肺', '心', '病', '水', '肿', '治', '疗', '病', '人', '55', '岁', '全', '身', '水', '肿', '腹', '部', '水', '肿', '厉', '害', '腹', '部', '肿', '厉', '害', '尿', '尿', '肺', '源', '性', '心', '脏', '病', '病', '人', '胃', '不', '好', '吃', '点', '败', '火', '药', '痛', '胃', '寒', '感', '冒', '吃', '点', '药', '仔', '细', '检', '查', '肾', '脏', '肝', '脏', '毛', '病', '肺', '源', '性', '心', '脏', '病', '水', '肿', '治', '疗', '[SEP]'], ['[CLS]', '幼', '儿', '扁', '桃', '体', '炎', '症', '发', '烧', '怎', '样', '治', '效', '果', '女', '宝', '宝', '月', '嗓', '子', '眼', '有', '点', '痛', '察', '觉', '到', '说', '话', '声', '音', '沙', '哑', '发', '烧', '请', '问', '幼', '儿', '扁', '桃', '体', '炎', '症', '发', '烧', '怎', '样', '治', '效', '果', '[SEP]'], ['[CLS]', '脑', '萎', '缩', '睡', '眠', '不', '好', '女', '60', '岁', '月', '份', '头', '晕', '睡', '不', '着', '小', '时', '[SEP]'], ['[CLS]', '月', '20', '日', '急', '性', '肠', '胃', '炎', '虚', '脱', '月', '20', '日', '急', '性', '肠', '胃', '炎', '脱', '力', '手', '臂', '小', '腿', '发', '软', '神', '经', '衰', '弱', '早', '醒', '食', '欲', '不', '好', '有', '时', '候', '那', '身', '汗', '有', '时', '候', '心', '慌', '仔', '细', '检', '查', '甲', '亢', '中', '医', '专', '心', '服', '药', '我', '该', '[SEP]'], ['[CLS]', '口', '臭', '治', '疗', '治', '好', '早', '上', '上', '床', '睡', '觉', '口', '腔', '里', '脱', '皮', '白', '天', '晚', '上', '干', '口', '臭', '医', '院', '挂', '水', '过', '敏', '前', '不', '久', '引', '来', '底', '[UNK]', '[SEP]'], ['[CLS]', '高', '血', '压', '脑', '溢', '血', '老', '爸', '身', '体', '渐', '渐', '不', '好', '患', '脑', '溢', '血', '情', '况', '高', '血', '压', '引', '来', '高', '血', '压', '特', '别', '难', '治', '疗', '高', '血', '压', '引', '来', '脑', '溢', '血', '做', '手', '术', '[SEP]'], ['[CLS]', '高', '血', '压', '血', '压', '稳', '定', '头', '晕', '脑', '胀', '舒', '服', '难', '受', '觉', '疲', '倦', '压', '力', '测', '量', '血', '压', '发', '现', '血', '压', '90', '##14', '##0', '样', '子', '高', '血', '压', '[SEP]'], ['[CLS]', '小', '儿', '扁', '桃', '体', '发', '炎', '舒', '服', '饮', '食', '点', '我', '家', '孩', '子', '男', '宝', '宝', '岁', '说', '嗓', '子', '喝', '水', '疼', '发', '现', '伴', '有', '轻', '微', '咳', '嗽', '发', '烧', '请', '问', '小', '儿', '扁', '桃', '体', '发', '炎', '舒', '服', '饮', '食', '点', '[SEP]'], ['[CLS]', '勃', '起', '硬', '度', '不', '够', '房', '事', 'nu', '##m', '分', '钟', '左', '右', '射', '精', '无', '力', '刚', '割', '包', '皮', '手', '术', '半', '个', '月', '请', '问', '怎', '么', '加', '强', '硬', '度', '、', '延', '时', '和', '射', '精', '力', '度', '[SEP]'], ['[CLS]', '本', '人', '房', '事', '时', '间', '过', '短', '一', '般', '也', '就', '两', '三', '分', '钟', '吃', '过', '一', '段', '六', '味', '地', '黄', '丸', '未', '见', '明', '显', '效', '果', '请', '问', '吃', '点', '什', '么', '药', '管', '用', '[SEP]'], ['[CLS]', '目', '前', '性', '欲', '不', '高', '性', '生', '活', '频', '率', '下', '降', '为', '一', '月', '一', '次', '连', '续', '三', '个', '月', '了', '主', '要', '表', '现', '还', '有', '勃', '起', '慢', '勃', '起', '不', '硬', '做', '爱', '时', '间', '短', '一', '抽', '插', '很', '容', '易', '射', '精', '近', '期', '工', '作', '很', '累', '连', '续', '很', '久', '睡', '眠', '不', '足', '有', '手', '淫', '习', '惯', '近', '期', '勃', '起', '不', '畅', '很', '少', '手', '淫', '此', '前', '由', '于', '尿', '尿', '泡', '沫', '多', '去', '医', '院', '拍', '片', '子', '肾', '脏', '没', '问', '题', '左', '侧', '睾', '丸', '有', '点', '轻', '微', '静', '脉', '曲', '张', '有', '点', '慢', '性', '前', '列', '腺', '炎', '吃', '了', 'nu', '##m', '-', 'nu', '##m', '[SEP]'], ['[CLS]', '孩', '子', '扁', '桃', '体', '炎', '症', '发', '烧', '医', '治', '女', '宝', '宝', '月', '说', '嗓', '子', '喝', '水', '疼', '察', '觉', '到', '伴', '有', '轻', '微', '咳', '嗽', '高', '烧', '不', '退', '请', '问', '孩', '子', '扁', '桃', '体', '炎', '症', '发', '烧', '医', '治', '[SEP]'], ['[CLS]', '体', '检', '有', '幽', '门', '螺', '杆', '菌', '胃', '酸', '大', '便', '不', '通', '畅', '不', '成', '型', '[SEP]'], ['[CLS]', '最', '近', '半', '年', '进', '行', '房', '事', '时', '很', '快', '就', '射', '了', '只', '要', '勃', '起', '龟', '头', '就', '有', '点', '痒', '想', '射', '吃', '什', '么', '药', '能', '治', '好', '[SEP]'], ['[CLS]', '频', '繁', '遗', '精', '七', '八', '天', '治', '疗', '手', '淫', '习', '惯', '年', '遗', '精', '频', '繁', '频', '繁', '遗', '精', '七', '八', '天', '治', '疗', '[SEP]'], ['[CLS]', '心', '肌', '缺', '血', '喝', '糯', '米', '酒', '怎', '么', '回', '事', '感', '觉', '心', '脏', '舒', '服', '吃', '药', '控', '制', '效', '果', '医', '院', '检', '查', '吃', '药', '请', '问', '心', '肌', '缺', '血', '喝', '糯', '米', '酒', '[SEP]'], ['[CLS]', '小', '孩', '患', '心', '肌', '炎', '症', '状', '12', '岁', '男', '孩', '几', '年', '前', '得', '心', '肌', '缺', '损', '十', '天', '前', '感', '冒', '发', '烧', '四', '天', '挂', '盐', '水', '白', '天', '体', '温', '37', '低', '烧', '心', '肌', '导', '致', '[SEP]']]
+ 
+2021-08-24 22:31:10 train.py INFO token_ids: tensor([[ 101,  872, 1962,  ...,    0,    0,    0],
+        [ 101, 4868, 5307,  ...,    0,    0,    0],
+        [ 101, 2207, 2111,  ...,    0,    0,    0],
+        ...,
+        [ 101, 7574, 5246,  ...,    0,    0,    0],
+        [ 101, 2552, 5491,  ...,    0,    0,    0],
+        [ 101, 2207, 2111,  ...,    0,    0,    0]])
+ 
+2021-08-24 22:31:10 train.py INFO token_ids shape: torch.Size([32, 128])
+ 
+2021-08-24 22:31:10 train.py INFO attention_mask: tensor([[1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        ...,
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0]])
+
+2021-08-24 22:31:10 train.py INFO token_type_ids: tensor([[0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0],
+        ...,
+        [0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0]])
+
+2021-08-24 22:31:10 train.py INFO labels: tensor([4, 9, 4, 7, 1, 5, 9, 2, 4, 1, 8, 0, 0, 0, 7, 7, 4, 9, 5, 5, 3, 3, 4, 0,
+        0, 0, 4, 5, 0, 0, 3, 3])
+
+2021-08-24 22:31:10 train.py INFO labels shape: torch.Size([32])
+
+2021-08-24 22:34:48 train.py INFO evaluate....................
+2021-08-24 22:35:48 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9838    0.8865    0.9327      1648
+         皮肤科     0.8911    0.9855    0.9359      1312
+          妇科     0.9257    0.9587    0.9419      1429
+       心血管内科     0.9491    0.8438    0.8933      1325
+        耳鼻喉科     0.9356    0.9549    0.9451      1308
+        消化内科     0.9595    0.8613    0.9077      1319
+        小儿内科     0.7733    0.7631    0.7682      1435
+        呼吸内科     0.7907    0.8714    0.8291      1439
+        内分泌科     0.8280    0.9499    0.8848      1318
+        神经内科     0.9580    0.8879    0.9216      1284
+
+    accuracy                         0.8951     13817
+   macro avg     0.8995    0.8963    0.8960     13817
+weighted avg     0.8995    0.8951    0.8955     13817
+
+2021-08-24 22:35:48 train.py INFO Confusion matrix: 
+[[1461   83   42    3    2    3   13    0   30   11]
+ [   3 1293    3    0    1    0    5    1    4    2]
+ [   6   13 1370    3    1    4   11    2   18    1]
+ [   2    6    9 1118    3   10   26   44   86   21]
+ [   1    5    2    0 1249    1   24   24    1    1]
+ [   5    5   21    6    1 1136  110   13   21    1]
+ [   1    9    7    6   36    8 1095  227   41    5]
+ [   4   10    4   16   39    6   90 1254   11    5]
+ [   1    9   11    7    1    8   19    7 1252    3]
+ [   1   18   11   19    2    8   23   14   48 1140]]
+2021-08-24 22:35:48 train.py INFO saving model..........
+2021-08-24 22:35:50 train.py INFO Iter:4000, Train Loss:0.0122, Train Acc:87.50%, Val Loss:0.0432, Val Acc:89.51%, Time:0:31:18 *
+2021-08-24 22:42:34 train.py INFO evaluate....................
+2021-08-24 22:43:33 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9542    0.9727    0.9633      1648
+         皮肤科     0.9672    0.9649    0.9660      1312
+          妇科     0.9345    0.9587    0.9465      1429
+       心血管内科     0.9439    0.8642    0.9023      1325
+        耳鼻喉科     0.9467    0.9503    0.9485      1308
+        消化内科     0.8274    0.9522    0.8854      1319
+        小儿内科     0.8777    0.6850    0.7695      1435
+        呼吸内科     0.8139    0.8450    0.8292      1439
+        内分泌科     0.8995    0.9165    0.9079      1318
+        神经内科     0.8913    0.9447    0.9172      1284
+
+    accuracy                         0.9049     13817
+   macro avg     0.9056    0.9054    0.9036     13817
+weighted avg     0.9060    0.9049    0.9035     13817
+
+2021-08-24 22:43:33 train.py INFO Confusion matrix: 
+[[1603    6   15    2    2    8    0    0    3    9]
+ [  23 1266    6    0    1    8    2    1    2    3]
+ [  20    1 1370    1    1    9    2    3    8   14]
+ [   3    4   13 1145    3   25   12   32   41   47]
+ [   1    1    4    1 1243    6   21   23    1    7]
+ [   7    2   14    2    0 1256   18    6   12    2]
+ [   3    7   18    8   26  104  983  205   50   31]
+ [   7    6    3   15   34   53   76 1216   13   16]
+ [   8    8   19   27    1   21    4    3 1208   19]
+ [   5    8    4   12    2   28    2    5    5 1213]]
+2021-08-24 22:43:33 train.py INFO saving model..........
+2021-08-24 22:43:35 train.py INFO Iter:5000, Train Loss:0.0278, Train Acc:93.75%, Val Loss:0.0329, Val Acc:90.49%, Time:0:39:03 *
+2021-08-24 22:50:23 train.py INFO evaluate....................
+2021-08-24 22:51:22 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9537    0.9739    0.9637      1648
+         皮肤科     0.9665    0.9665    0.9665      1312
+          妇科     0.9411    0.9608    0.9508      1429
+       心血管内科     0.9242    0.8740    0.8984      1325
+        耳鼻喉科     0.9391    0.9427    0.9409      1308
+        消化内科     0.8733    0.9515    0.9107      1319
+        小儿内科     0.7524    0.8195    0.7845      1435
+        呼吸内科     0.9116    0.6880    0.7842      1439
+        内分泌科     0.9258    0.8998    0.9127      1318
+        神经内科     0.8671    0.9657    0.9138      1284
+
+    accuracy                         0.9035     13817
+   macro avg     0.9055    0.9042    0.9026     13817
+weighted avg     0.9057    0.9035    0.9023     13817
+
+2021-08-24 22:51:22 train.py INFO Confusion matrix: 
+[[1605   14   13    2    1    2    1    0    2    8]
+ [  16 1268    9    0    0    9    1    1    1    7]
+ [  21    3 1373    5    1    6    4    2    7    7]
+ [   2    2    5 1158    1   18   17   13   39   70]
+ [   0    6    2    5 1233    4   39   10    1    8]
+ [   8    1   14    7    0 1255   21    4    4    5]
+ [   4   10    5   12   30   75 1176   63   37   23]
+ [   5    2    5   34   45   31  293  990    4   30]
+ [  19    2   24   20    1   23    9    2 1186   32]
+ [   3    4    9   10    1   14    2    1    0 1240]]
+2021-08-24 22:51:22 train.py INFO Iter:6000, Train Loss:0.0117, Train Acc:87.50%, Val Loss:0.0323, Val Acc:90.35%, Time:0:46:50 
+2021-08-24 22:57:31 train.py INFO Epoch [3/5]
+2021-08-24 22:57:32 train.py INFO tokens: [['[CLS]', '尿', '频', '阴', '囊', '潮', '湿', '有', '点', '早', '泄', '去', '医', '院', '看', '过', '说', '是', '检', '查', '过', '前', '列', '腺', '液', '说', '是', '红', '细', '胞', '多', '让', '吃', '的', '阿', '奇', '霉', '素', '复', '方', '玄', '驹', '胶', '囊', '还', '有', '盐', '酸', '舍', '曲', '林', '还', '让', '用', '个', '栓', '剂', '感', '觉', '没', '啥', '用', '到', '底', '吃', '点', '啥', '药', '能', '有', '效', '果', '[SEP]'], ['[CLS]', '从', 'nu', '##m', '个', '月', '前', '开', '始', '咳', '嗽', '期', '间', '去', '过', '县', '级', '人', '民', '医', '院', '检', '查', '医', '生', '有', '开', '药', '吃', '了', '没', '有', '明', '显', '的', '效', '果', '然', '后', '去', '看', '了', '中', '医', '吃', '了', '中', '药', '后', '有', '明', '显', '的', '缓', '解', '但', '是', '吃', '完', '一', '个', '疗', '程', '之', '后', '又', '有', '复', '发', '还', '是', '咳', '嗽', '[SEP]'], ['[CLS]', '人', '工', '性', '荨', '麻', '疹', '定', '时', '发', '病', '发', '病', '时', '特', '别', '痒', '手', '指', '划', '分', '钟', '[SEP]'], ['[CLS]', '治', '疗', '癫', '痫', '病', '权', '威', '医', '院', '一', '种', '癫', '痫', '病', '很', '想', '快', '点', '医', '治', '治', '疗', '癫', '痫', '病', '权', '威', '医', '院', '[SEP]'], ['[CLS]', '医', '生', '你', '好', '我', '是', '一', '名', '哮', '喘', '患', '者', '一', '直', '吸', '沙', '美', '特', '罗', '替', '卡', '松', '粉', '吸', '入', '剂', '请', '你', '开', '张', '单', '[SEP]'], ['[CLS]', '最', '近', '一', '顿', '时', '间', '白', '天', '偶', '尔', '咳', '嗽', '晚', '上', '睡', '觉', '后', '前', '几', '个', '小', '时', '咳', '嗽', '嗓', '子', '里', '似', '乎', '有', '痰', '还', '打', '呼', '噜', '[SEP]'], ['[CLS]', '宫', '颈', '糜', '烂', '救', '治', '多', '长', '时', '间', '宫', '颈', '糜', '烂', '长', '个', '囊', '肿', '宫', '颈', '糜', '烂', '救', '治', '多', '长', '时', '间', '费', '用', '想', '费', '用', '钱', '约', '莫', '[SEP]'], ['[CLS]', '霉', '菌', '性', '阴', '道', '炎', '反', '复', '发', '作', '[SEP]'], ['[CLS]', '心', '脏', '神', '经', '官', '能', '症', '想', '挂', '号', '挂', '心', '脏', '神', '经', '官', '能', '症', '加', '班', '太', '多', '感', '觉', '心', '脏', '压', '力', '很', '大', '舒', '服', '深', '度', '睡', '眠', '质', '量', '不', '好', '惊', '醒', '想', '医', '院', '看', '一', '看', '知', '晓', '挂', '科', '心', '脏', '神', '经', '官', '能', '症', '想', '挂', '号', '挂', '[SEP]'], ['[CLS]', '最', '近', '几', '年', '有', '手', '淫', '习', '惯', '！', '导', '致', '阳', '痿', '！', '做', '爱', '时', '进', '入', '不', '到', '一', '分', '钟', '就', '射', '了', '！', '都', '没', '有', '抽', '插', '的', '机', '会', '！', '看', '过', '黄', '片', '还', '行', '！', '[SEP]'], ['[CLS]', '血', '糖', '餐', '前', 'nu', '##m', '餐', '后', 'nu', '##m', '血', '压', '药', '物', '控', '制', 'nu', '##m', '/', 'nu', '##m', '[SEP]'], ['[CLS]', '甲', '减', '患', '者', '长', '期', '吃', '药', '发', '胖', '检', '查', '甲', '减', '医', '生', '长', '期', '吃', '优', '甲', '乐', '身', '体', '胖', '想', '得', '到', '甲', '减', '患', '者', '请', '问', '长', '期', '吃', '优', '甲', '乐', '会', '发', '胖', '[SEP]'], ['[CLS]', '孩', '子', '扁', '桃', '体', '发', '炎', '低', '烧', '治', '疗', '我', '家', '孩', '子', '男', '宝', '宝', '岁', '说', '嗓', '子', '喝', '水', '疼', '发', '现', '咳', '嗽', '好', '像', '比', '较', '严', '重', '高', '烧', '不', '退', '请', '问', '孩', '子', '扁', '桃', '体', '发', '炎', '低', '烧', '治', '疗', '[SEP]'], ['[CLS]', '小', '儿', '扁', '桃', '体', '炎', '难', '受', '治', '疗', '我', '家', '男', '宝', '岁', '说', '咽', '东', '西', '疼', '发', '现', '咳', '嗽', '剧', '烈', '好', '像', '低', '烧', '没', '退', '请', '问', '小', '儿', '扁', '桃', '体', '炎', '难', '受', '治', '疗', '[SEP]'], ['[CLS]', '甲', '亢', '伴', '有', '甲', '状', '腺', '二', '度', '肿', '大', '疗', '养', '甲', '亢', '二', '年', '吃', '赛', '治', '效', '果', '换', '药', '药', '量', '甲', '功', '病', '情', '稳', '定', '不', '治', '根', '[SEP]'], ['[CLS]', '胃', '窦', '炎', '吃', '食', '物', '您', '好', '胃', '窦', '炎', '想', '问', '胃', '窦', '炎', '吃', '[SEP]'], ['[CLS]', '继', '发', '性', '高', '血', '压', '高', '血', '压', '药', '物', '治', '疗', '觉', '着', '血', '压', '偏', '低', '不', '适', '减', '药', '停', '药', '半', '月', '血', '压', '平', '稳', '质', '疑', '高', '血', '压', '继', '发', '性', '继', '发', '性', '高', '血', '压', '在', '乎', '继', '发', '性', '高', '血', '压', '[SEP]'], ['[CLS]', '就', '是', '做', '爱', '时', '间', '一', '直', '在', '五', '分', '钟', '左', '右', '[SEP]'], ['[CLS]', '高', '血', '压', '高', '危', '因', '素', '身', '边', '好', '几', '个', '高', '血', '压', '年', '纪', '病', '紧', '张', '留', '意', '饮', '食', '想', '高', '血', '压', '高', '危', '因', '素', '几', '项', '[SEP]'], ['[CLS]', '孙', '庆', '英', '女', 'nu', '##m', '岁', '灰', '指', '甲', '多', '年', '已', '服', '用', '克', '银', '迪', '-', '盐', '酸', '伊', '曲', '康', '唑', '胶', '囊', '一', '个', '疗', '程', '需', '要', '继', '续', '服', '药', '请', '您', '帮', '忙', '开', 'nu', '##m', '盒', '该', '药', '（', '图', '二', '图', '三', '）', '非', '常', '感', '谢', '！', '！', '[SEP]'], ['[CLS]', '癫', '痫', '发', '病', '前', '会', '幻', '觉', '听', '说', '癫', '痫', '病', '发', '作', '前', '幻', '觉', '真', '的', '[SEP]'], ['[CLS]', '甲', '减', '吃', '朋', '友', '甲', '减', '面', '色', '苍', '白', '记', '忆', '力', '减', '退', '月', '经', '[SEP]'], ['[CLS]', '治', '疗', '龟', '头', '炎', '花', '费', '钱', '治', '疗', '初', '期', '龟', '头', '炎', '花', '费', '钱', '龟', '头', '炎', '应', '预', '防', '工', '作', '[SEP]'], ['[CLS]', '医', '院', '查', '出', '霉', '菌', '阴', '道', '炎', '用', '了', '阴', '道', '泡', '腾', '片', '后', '白', '带', '变', '成', '豆', '腐', '渣', '一', '样', '量', '还', '变', '多', '了', '[SEP]'], ['[CLS]', '感', '冒', '流', '黄', '色', '鼻', '涕', '药', '[SEP]'], ['[CLS]', '生', '孩', '子', '时', '刨', '腹', '产', '扎', '输', '卵', '管', '39', '岁', '生', '孩', '子', '时', '刨', '腹', '产', '扎', '输', '卵', '管', '能', '接', '起', '要', '孩', '子', '[SEP]'], ['[CLS]', '医', '生', '你', '好', '咯', '血', '但', '是', '不', '咳', '嗽', '偶', '尔', '咳', '嗽', '一', '次', '血', '量', '很', '多', '三', '天', '前', '突', '然', '咳', '嗽', '几', '声', '吐', '痰', '居', '然', '全', '是', '血', '鲜', '红', '带', '点', '黑', '是', '什', '么', '原', '因', '[SEP]'], ['[CLS]', '我', '这', '是', '不', '是', '牛', '皮', '癣', '主', '要', '集', '中', '在', '四', '肢', '和', '后', '背', '一', '扣', '就', '走', '白', '色', '鳞', '片', '头', '上', '也', '有', '[SEP]'], ['[CLS]', 'nu', '##m', '号', '就', 'nu', '##m', '个', '月', '的', '宝', '宝', '白', '天', '有', '点', '流', '鼻', '涕', '晚', '上', '睡', '觉', '感', '觉', '鼻', '子', '有', '鼻', '涕', '吸', '的', '深', '了', '就', '咳', '嗽', '半', '夜', '和', '早', '上', 'nu', '##m', '、', 'nu', '##m', '点', '咳', '的', '次', '数', '多', '一', '些', '感', '觉', '是', '鼻', '涕', '倒', '流', '刺', '激', '的', '咳', '嗽', '可', '以', '吃', '什', '么', '药', '缓', '解', '鼻', '涕', '症', '状', '今', '天', '晚', '上', '喂', '了', 'nu', '##m', '/', 'nu', '##m', '百', '蕊', '；', '有', '两', '三', '天', '了', '[SEP]'], ['[CLS]', '发', '生', '儿', '童', '扁', '桃', '体', '发', '炎', '临', '床', '症', '状', '我', '家', '孩', '子', '男', '宝', '宝', '岁', '说', '话', '时', '嗓', '子', '疼', '察', '觉', '到', '咳', '嗽', '好', '像', '比', '较', '严', '重', '发', '烧', '请', '问', '发', '生', '儿', '童', '扁', '桃', '体', '发', '炎', '临', '床', '症', '状', '[SEP]'], ['[CLS]', '癫', '痫', '病', '症', '状', '服', '药', '药', '物', '癫', '痫', '症', '状', '上', '周', '第', '一', '次', '癫', '痫', '发', '作', '吵', '感', '觉', '更', '激', '倒', '口', '吐', '白', '沫', '病', '治', '疗', '留', '意', '留', '意', '哪', '些', '方', '面', '[SEP]'], ['[CLS]', 'u', '##u', '阳', '性', '吃', '药', '后', '周', '查', '阴', '1', '.', '5', '月', '查', '阳', '解', '脲', '支', '原', '体', '阳', '性', '吃', '阿', '奇', '霉', '素', '14', '天', '后', '一', '周', '查', '转', '阴', '[SEP]']]
+ 
+2021-08-24 22:57:32 train.py INFO token_ids: tensor([[  101,  2228,  7574,  ...,     0,     0,     0],
+        [  101,   794, 12797,  ...,     0,     0,     0],
+        [  101,   782,  2339,  ...,     0,     0,     0],
+        ...,
+        [  101,  1355,  4495,  ...,     0,     0,     0],
+        [  101,  4626,  4587,  ...,     0,     0,     0],
+        [  101,   163,  8207,  ...,     0,     0,     0]])
+ 
+2021-08-24 22:57:32 train.py INFO token_ids shape: torch.Size([32, 99])
+ 
+2021-08-24 22:57:32 train.py INFO attention_mask: tensor([[1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        ...,
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0]])
+
+2021-08-24 22:57:32 train.py INFO token_type_ids: tensor([[0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0],
+        ...,
+        [0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0]])
+
+2021-08-24 22:57:32 train.py INFO labels: tensor([0, 7, 1, 9, 7, 4, 2, 2, 3, 0, 3, 8, 4, 4, 8, 5, 3, 0, 3, 1, 9, 8, 0, 2,
+        7, 2, 7, 1, 6, 4, 9, 1])
+
+2021-08-24 22:57:32 train.py INFO labels shape: torch.Size([32])
+
+2021-08-24 22:58:07 train.py INFO evaluate....................
+2021-08-24 22:59:06 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9633    0.9715    0.9674      1648
+         皮肤科     0.9689    0.9748    0.9719      1312
+          妇科     0.9324    0.9657    0.9488      1429
+       心血管内科     0.9204    0.9079    0.9141      1325
+        耳鼻喉科     0.9179    0.9664    0.9415      1308
+        消化内科     0.9438    0.9166    0.9300      1319
+        小儿内科     0.8609    0.7721    0.8141      1435
+        呼吸内科     0.8400    0.8610    0.8504      1439
+        内分泌科     0.8954    0.9158    0.9055      1318
+        神经内科     0.9422    0.9393    0.9407      1284
+
+    accuracy                         0.9189     13817
+   macro avg     0.9185    0.9191    0.9184     13817
+weighted avg     0.9185    0.9189    0.9183     13817
+
+2021-08-24 22:59:06 train.py INFO Confusion matrix: 
+[[1601   14   17    2    1    2    0    0    7    4]
+ [  12 1279    5    0    3    3    4    0    6    0]
+ [  14    3 1380    3    1    1    3    2   13    9]
+ [   1    3    5 1203    4    9   13   24   39   24]
+ [   1    1    1    3 1264    2   10   22    1    3]
+ [   7    3   22   11    2 1209   37    7   18    3]
+ [   5    4   13   12   54   23 1108  172   30   14]
+ [   5    0   14   22   42   15   83 1239   13    6]
+ [  10    9   15   27    2    9   25    3 1207   11]
+ [   6    4    8   24    4    8    4    6   14 1206]]
+2021-08-24 22:59:06 train.py INFO saving model..........
+2021-08-24 22:59:08 train.py INFO Iter:7000, Train Loss:0.0512, Train Acc:84.38%, Val Loss:0.0269, Val Acc:91.89%, Time:0:54:36 *
+2021-08-24 23:05:54 train.py INFO evaluate....................
+2021-08-24 23:06:53 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9523    0.9691    0.9606      1648
+         皮肤科     0.9137    0.9848    0.9479      1312
+          妇科     0.9517    0.9524    0.9521      1429
+       心血管内科     0.9364    0.8785    0.9065      1325
+        耳鼻喉科     0.9627    0.9075    0.9343      1308
+        消化内科     0.9253    0.9295    0.9274      1319
+        小儿内科     0.8260    0.7742    0.7993      1435
+        呼吸内科     0.8087    0.8930    0.8487      1439
+        内分泌科     0.9343    0.8854    0.9092      1318
+        神经内科     0.9154    0.9354    0.9253      1284
+
+    accuracy                         0.9113     13817
+   macro avg     0.9127    0.9110    0.9111     13817
+weighted avg     0.9122    0.9113    0.9111     13817
+
+2021-08-24 23:06:53 train.py INFO Confusion matrix: 
+[[1597   16   19    2    2    2    0    0    4    6]
+ [  10 1292    3    0    0    0    4    2    0    1]
+ [  19    8 1361    2    0    4    3    8   16    8]
+ [   5   15    4 1164    3   12   14   35   23   50]
+ [   0    6    1    0 1187    1   80   30    1    2]
+ [  24    7   14    3    0 1226   24   16    3    2]
+ [   4    7   10   11   11   37 1111  195   31   18]
+ [   5    2    3   13   22    6   91 1285    2   10]
+ [  10   25   11   40    4   21   13   13 1167   14]
+ [   3   36    4    8    4   16    5    5    2 1201]]
+2021-08-24 23:06:53 train.py INFO Iter:8000, Train Loss:0.0200, Train Acc:87.50%, Val Loss:0.0334, Val Acc:91.13%, Time:1:02:21 
+2021-08-24 23:13:42 train.py INFO evaluate....................
+2021-08-24 23:14:41 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.8949    0.9867    0.9385      1648
+         皮肤科     0.9819    0.9512    0.9663      1312
+          妇科     0.9572    0.9223    0.9394      1429
+       心血管内科     0.9380    0.8913    0.9141      1325
+        耳鼻喉科     0.9333    0.9633    0.9481      1308
+        消化内科     0.8931    0.9371    0.9145      1319
+        小儿内科     0.8528    0.7791    0.8143      1435
+        呼吸内科     0.8680    0.8409    0.8542      1439
+        内分泌科     0.9167    0.9021    0.9094      1318
+        神经内科     0.8902    0.9408    0.9148      1284
+
+    accuracy                         0.9115     13817
+   macro avg     0.9126    0.9115    0.9114     13817
+weighted avg     0.9117    0.9115    0.9109     13817
+
+2021-08-24 23:14:41 train.py INFO Confusion matrix: 
+[[1626    4    3    3    2    0    0    0    4    6]
+ [  49 1248    3    0    3    4    4    0    1    0]
+ [  62    1 1318    2    1    4    2    2    9   28]
+ [   5    1    5 1181    3    9   16   23   45   37]
+ [   2    1    1    0 1260    1   26   14    1    2]
+ [  23    3   11   11    1 1236   18    5    3    8]
+ [   6    4    8    9   33   71 1118  135   32   19]
+ [  10    0    6   17   41   20  114 1210   11   10]
+ [  24    3   18    8    2   27    7    1 1189   39]
+ [  10    6    4   28    4   12    6    4    2 1208]]
+2021-08-24 23:14:41 train.py INFO Iter:9000, Train Loss:0.0920, Train Acc:84.38%, Val Loss:0.0321, Val Acc:91.15%, Time:1:10:09 
+2021-08-24 23:21:25 train.py INFO evaluate....................
+2021-08-24 23:22:24 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9566    0.9769    0.9667      1648
+         皮肤科     0.9681    0.9726    0.9703      1312
+          妇科     0.9755    0.9209    0.9474      1429
+       心血管内科     0.9709    0.8302    0.8950      1325
+        耳鼻喉科     0.9702    0.9205    0.9447      1308
+        消化内科     0.8402    0.9689    0.9000      1319
+        小儿内科     0.8179    0.8167    0.8173      1435
+        呼吸内科     0.8310    0.8541    0.8424      1439
+        内分泌科     0.8936    0.9181    0.9057      1318
+        神经内科     0.9288    0.9447    0.9367      1284
+
+    accuracy                         0.9125     13817
+   macro avg     0.9153    0.9124    0.9126     13817
+weighted avg     0.9151    0.9125    0.9127     13817
+
+2021-08-24 23:22:24 train.py INFO Confusion matrix: 
+[[1610   13    3    0    0    6    0    0   11    5]
+ [   9 1276    5    1    3    4    6    3    3    2]
+ [  29   12 1316    0    1   23    7    8   30    3]
+ [   6    1    7 1100    2   49   21   48   38   53]
+ [   1    1    0    1 1204    1   47   50    2    1]
+ [   3    0    5    0    1 1278   16    9    4    3]
+ [   4    4    3    7   16   71 1172  116   33    9]
+ [   6    0    2    8   11   20  142 1229   11   10]
+ [  10    6    6   11    1   52    8    7 1210    7]
+ [   5    5    2    5    2   17   14    9   12 1213]]
+2021-08-24 23:22:24 train.py INFO Iter:10000, Train Loss:0.0545, Train Acc:87.50%, Val Loss:0.0291, Val Acc:91.25%, Time:1:17:52 
+2021-08-24 23:24:52 train.py INFO Epoch [4/5]
+2021-08-24 23:24:52 train.py INFO tokens: [['[CLS]', '宫', '颈', '糜', '烂', '影', '响', '性', '生', '活', '医', '生', '您', '好', '28', '岁', '女', '性', '我', '前', '阵', '子', '感', '觉', '下', '体', '舒', '服', '小', '腹', '莫', '名', '疼', '医', '院', '仔', '细', '检', '查', '宫', '颈', '糜', '烂', '您', '好', '医', '生', '宫', '颈', '糜', '烂', '影', '响', '性', '生', '活', '[SEP]'], ['[CLS]', '淋', '巴', '结', '影', '懒', '得', '动', '吃', '饭', '一', '会', '想', '吃', '东', '西', '吃', '不', '想', '急', '死', '了', '害', '怕', '疾', '病', '想', '咨', '询', '请', '问', '淋', '巴', '结', '影', '[SEP]'], ['[CLS]', '预', '防', '风', '湿', '性', '心', '脏', '病', '我', '家', '对', '面', '住', '阿', '姨', '心', '脏', '复', '发', '发', '觉', '送', '医', '院', '医', '生', '仔', '细', '检', '查', '说', '风', '湿', '性', '心', '脏', '病', '父', '母', '年', '纪', '再', '次', '出', '现', '这', '类', '病', '想', '问', '问', '医', '生', '预', '防', '疾', '病', '风', '湿', '性', '心', '脏', '病', '[SEP]'], ['[CLS]', '性', '功', '能', '障', '碍', '治', '结', '婚', '多', '年', '老', '婆', '怀', '孕', '医', '院', '检', '查', '性', '功', '能', '障', '碍', '性', '功', '能', '障', '碍', '治', '[SEP]'], ['[CLS]', '羊', '癫', '疯', '病', '检', '查', '检', '查', '几', '项', '小', '王', '单', '位', '司', '机', '特', '勤', '爱', '说', '爱', '笑', '没', '听', '说', '过', '身', '体', '上', '次', '单', '位', '聚', '会', '激', '动', '缘', '故', '间', '倒', '地', '浑', '身', '抽', '动', '吐', '白', '沫', '[SEP]'], ['[CLS]', '我', '是', '哮', '喘', '病', '患', '者', '可', '以', '网', '上', '处', '方', '购', '药', '吗', '[SEP]'], ['[CLS]', '甲', '亢', '生', '孩', '子', '服', '用', '131', '碘', '治', '疗', '一', '成', '甲', '减', '甲', '减', '能', '看', '好', '生', '孩', '子', '[SEP]'], ['[CLS]', '三', '月', '末', '去', '郊', '游', '回', '来', '后', '身', '上', '起', '红', '色', '斑', '点', '能', '挤', '出', '淡', '黄', '色', '脓', '水', '开', '始', '在', '大', '腿', '上', '有', '五', '六', '个', '后', '来', '大', '腿', '小', '腿', '胳', '膊', '肚', '子', '后', '背', '手', '脚', '都', '有', '手', '部', '尤', '其', '严', '重', '白', '天', '不', '会', '很', '痒', '晚', '上', '非', '常', '痒', '涂', '抹', '清', '凉', '油', '基', '本', '没', '用', '涂', '抹', '芦', '荟', '胶', '有', '用', '但', '不', '能', '根', '除', '请', '问', '是', '什', '么', '病', '需', '要', '用', '什', '么', '药', '内', '服', '还', '是', '外', '敷', '附', '患', '处', '图', '片', '[SEP]'], ['[CLS]', '缓', '解', '痛', '经', '腹', '痛', '每', '次', '月', '经', '痛', '经', '算', '比', '较', '严', '重', '痛', '经', '腹', '部', '很', '痛', '知', '晓', '医', '生', '缓', '解', '痛', '经', '腹', '痛', '[SEP]'], ['[CLS]', '白', '癜', '风', '[SEP]'], ['[CLS]', '怀', '孕', '养', '兔', '子', '畸', '形', '我', '家', '兔', '子', '样', '月', '怀', '孕', '月', '有', '人', '说', '怀', '孕', '养', '兔', '子', '说', '宝', '宝', '畸', '形', '死', '亡', '舍', '不', '得', '丢', '没', '人', '养', '怀', '孕', '养', '兔', '子', '畸', '形', '[SEP]'], ['[CLS]', '儿', '童', '中', '耳', '炎', '耳', '朵', '胀', '痛', '应', '治', '疗', '女', '宝', '宝', '岁', '近', '几', '天', '孩', '子', '说', '耳', '朵', '疼', '察', '觉', '到', '发', '现', '耳', '屎', '脓', '状', '黄', '食', '欲', '不', '好', '嗓', '子', '舒', '服', '请', '问', '儿', '童', '中', '耳', '炎', '耳', '朵', '胀', '痛', '应', '治', '疗', '[SEP]'], ['[CLS]', '岁', '宝', '宝', '吃', '冰', '淇', '淋', '流', '鼻', '涕', '呕', '吐', '[SEP]'], ['[CLS]', '额', '叶', '癫', '痫', '前', '额', '极', '区', '发', '作', '原', '因', '前', '几', '天', '单', '位', '统', '一', '做', '体', '检', '体', '检', '报', '告', '写', '额', '叶', '癫', '痫', '前', '额', '极', '区', '发', '作', '纳', '闷', '身', '体', '一', '向', '生', '病', '病', '原', '因', '[SEP]'], ['[CLS]', '癫', '痫', '发', '作', '次', '数', '减', '少', '几', '个', '月', '前', '做', '脑', '颅', '手', '术', '癫', '痫', '病', '总', '会', '再', '次', '出', '现', '昏', '倒', '情', '况', '增', '加', '复', '发', '次', '数', '[SEP]'], ['[CLS]', '睡', '觉', '时', '咳', '嗽', '呕', '吐', '胸', '口', '胸', '痛', '胸', '闷', '情', '况', '医', '院', '检', '查', '说', '呼', '吸', '道', '疾', '病', '吃', '药', '管', '用', '咳', '嗽', '加', '重', '请', '问', '睡', '觉', '时', '咳', '嗽', '呕', '吐', '[SEP]'], ['[CLS]', '癫', '痫', '手', '术', '风', '险', '表', '哥', '癫', '痫', '七', '八', '年', '药', '物', '很', '久', '没', '发', '作', '懂', '擅', '自', '停', '药', '导', '致', '病', '情', '严', '重', '反', '弹', '多', '年', '换', '药', '加', '药', '验', '血', '发', '现', '药', '浓', '度', '逼', '近', '危', '机', '值', '无', '法', '控', '制', '一', '两', '天', '发', '作', '有', '没', '有', '出', '国', '手', '术', '[SEP]'], ['[CLS]', '胰', '腺', '炎', '心', '包', '炎', '治', '疗', '天', '前', '发', '病', '下', '颚', '痛', '到', '腹', '部', '呕', '吐', '现', '象', '脊', '背', '疼', '痛', '[SEP]'], ['[CLS]', '胃', '病', '胃', '炎', '治', '疗', '办', '法', '晚', '上', '胃', '痛', '吃', '太', '饱', '[SEP]'], ['[CLS]', '有', '时', '外', '阴', '有', '点', '痒', '阴', '道', '偶', '尔', '也', '会', '痒', '轻', '微', '的', '白', '带', '有', '点', '多', '白', '色', '无', '异', '味', '去', '检', '查', '又', '什', '么', '事', '都', '没', '有', '想', '请', '医', '生', '开', '处', '方', '我', '要', '在', '京', '东', '上', '买', '川', '百', '止', '痒', '洗', '液', '谢', '谢', '！', '[SEP]'], ['[CLS]', '幼', '儿', '扁', '桃', '体', '炎', '难', '受', '应', '治', '疗', '我', '家', '孩', '子', '男', '宝', '宝', '岁', '说', '话', '时', '嗓', '子', '疼', '察', '觉', '到', '伴', '有', '轻', '微', '咳', '嗽', '高', '烧', '不', '退', '请', '问', '幼', '儿', '扁', '桃', '体', '炎', '难', '受', '应', '治', '疗', '[SEP]'], ['[CLS]', '女', '性', '不', '孕', '原', '因', '女', '25', '岁', '结', '婚', '好', '几', '年', '期', '间', '避', '孕', '挺', '苦', '恼', '请', '问', '女', '性', '不', '孕', '原', '因', '[SEP]'], ['[CLS]', '手', '足', '口', '病', '症', '状', '治', '疗', '方', '法', '小', '学', '里', '手', '足', '口', '病', '小', '孩', '子', '特', '别', '儿', '子', '小', '心', '感', '染', '表', '现', '说', '手', '足', '口', '病', '老', '公', '觉', '着', '感', '冒', '想', '咨', '询', '手', '足', '口', '病', '症', '状', '治', '疗', '方', '法', '[SEP]'], ['[CLS]', '孩', '子', '扁', '桃', '体', '炎', '疼', '医', '治', '我', '家', '孩', '子', '男', '宝', '宝', '岁', '说', '话', '时', '嗓', '子', '疼', '察', '觉', '到', '说', '话', '声', '音', '沙', '哑', '高', '烧', '不', '退', '请', '问', '孩', '子', '扁', '桃', '体', '炎', '疼', '医', '治', '[SEP]'], ['[CLS]', '从', 'nu', '##m', '个', '月', '前', '开', '始', '咳', '嗽', '期', '间', '去', '过', '县', '级', '人', '民', '医', '院', '检', '查', '医', '生', '有', '开', '药', '吃', '了', '没', '有', '明', '显', '的', '效', '果', '然', '后', '去', '看', '了', '中', '医', '吃', '了', '中', '药', '后', '有', '明', '显', '的', '缓', '解', '但', '是', '吃', '完', '一', '个', '疗', '程', '之', '后', '又', '有', '复', '发', '还', '是', '咳', '嗽', '[SEP]'], ['[CLS]', '您', '好', '我', '是', '一', '名', 'it', '女', '已', '经', '生', '育', '育', '有', '一', '子', '肠', '胃', '一', '直', '挺', '好', '就', '最', '近', '俩', '月', '的', '时', '间', '吃', '了', '饭', '肚', '子', '疼', '的', '情', '况', '逐', '渐', '频', '繁', '这', '几', '天', '是', '天', '天', '都', '会', '有', '吃', '过', '饭', '稍', '后', '会', '有', '肚', '子', '疼', '的', '情', '况', '肚', '子', '疼', '持', '续', '时', '间', '长', '就', '像', '一', '个', '铅', '球', '坠', '着', '前', '几', '次', '肚', '子', '疼', '看', '医', '生', '医', '生', '说', '是', '肠', '痉', '挛', '不', '要', '吃', '生', '冷', '和', '刺', '激', '的', '食', '物', '我', '都', '不', '敢', '吃', '了', '可', '是', '还', '会', '有', '肚', '子', '疼', '的', '情', '况', '一', '[SEP]'], ['[CLS]', '阳', '痿', '早', '泄', '想', '买', '点', '药', '开', '个', '处', '方', '[SEP]'], ['[CLS]', '唾', '觉', '压', '尾', '骨', '痛', '一', '名', '女', '性', '晨', '起', '尾', '骨', '压', '迫', '疼', '痛', '而', '醒', '夜', '里', '一', '到', '两', '次', '解', '小', '便', '好', '些', '时', '间', '躺', '直', '立', '20', '分', '钟', '症', '状', '消', '失', '白', '天', '久', '坐', '时', '间', '长', '会', '坐', '立', '不', '安', '有', '尿', '感', '用', '手', '尾', '骨', '轻', '痛', '感', '[SEP]'], ['[CLS]', '一', '岁', '宝', '宝', '吃', '奶', '不', '吐', '吃', '辅', '食', '会', '吐', '[SEP]'], ['[CLS]', '龟', '头', '炎', '不', '抹', '药', '冲', '澡', '多', '喝', '水', '改', '善', '龟', '头', '小', '红', '点', '半', '个', '月', '抹', '碘', '伏', '效', '果', '不', '抹', '药', '冲', '澡', '多', '喝', '水', '能', '治', '好', '[SEP]'], ['[CLS]', '便', '秘', '吃', '何', '种', '益', '生', '菌', '我', '患', '便', '秘', '毛', '病', '很', '多', '年', '试', '过', '方', '法', '救', '治', '病', '情', '时', '轻', '时', '重', '自', '愈', '想', '理', '解', '几', '下', '便', '秘', '吃', '益', '生', '菌', '[SEP]'], ['[CLS]', '早', '泄', '老', '公', '实', '施', '房', '事', '知', '晓', '原', '因', '患', '上', '早', '性', '生', '活', '越', '来', '越', '您', '好', '早', '泄', '[SEP]']]
+ 
+2021-08-24 23:24:52 train.py INFO token_ids: tensor([[ 101, 2151, 7568,  ...,    0,    0,    0],
+        [ 101, 3900, 2349,  ...,    0,    0,    0],
+        [ 101, 7564, 7344,  ...,    0,    0,    0],
+        ...,
+        [ 101, 7991, 1928,  ...,    0,    0,    0],
+        [ 101,  912, 4908,  ...,    0,    0,    0],
+        [ 101, 3193, 3786,  ...,    0,    0,    0]])
+ 
+2021-08-24 23:24:52 train.py INFO token_ids shape: torch.Size([32, 128])
+ 
+2021-08-24 23:24:52 train.py INFO attention_mask: tensor([[1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        ...,
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0]])
+
+2021-08-24 23:24:52 train.py INFO token_type_ids: tensor([[0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0],
+        ...,
+        [0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0]])
+
+2021-08-24 23:24:52 train.py INFO labels: tensor([2, 8, 3, 0, 9, 7, 8, 1, 5, 1, 2, 4, 6, 9, 9, 7, 9, 5, 5, 2, 4, 2, 6, 4,
+        7, 5, 0, 8, 6, 0, 5, 0])
+
+2021-08-24 23:24:52 train.py INFO labels shape: torch.Size([32])
+
+2021-08-24 23:29:11 train.py INFO evaluate....................
+2021-08-24 23:30:10 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9781    0.9496    0.9637      1648
+         皮肤科     0.9630    0.9733    0.9682      1312
+          妇科     0.9831    0.8146    0.8909      1429
+       心血管内科     0.9518    0.8649    0.9063      1325
+        耳鼻喉科     0.9494    0.9472    0.9483      1308
+        消化内科     0.9691    0.8795    0.9221      1319
+        小儿内科     0.8067    0.8404    0.8232      1435
+        呼吸内科     0.8774    0.8054    0.8399      1439
+        内分泌科     0.6740    0.9788    0.7983      1318
+        神经内科     0.9449    0.9354    0.9401      1284
+
+    accuracy                         0.8980     13817
+   macro avg     0.9098    0.8989    0.9001     13817
+weighted avg     0.9107    0.8980    0.9002     13817
+
+2021-08-24 23:30:10 train.py INFO Confusion matrix: 
+[[1565   20    5    2    5    2    1    0   42    6]
+ [   5 1277    2    0    1    0    3    1   22    1]
+ [  15    7 1164    1    1    2    0    6  230    3]
+ [   0    2    2 1146    3    3   12   23  107   27]
+ [   0    2    0    2 1239    0   28   28    6    3]
+ [   4    4    6    6    0 1160   45    7   79    8]
+ [   3    2    3   12   25   14 1206   90   68   12]
+ [   3    1    1   16   28    6  192 1159   29    4]
+ [   5    0    1    5    2    5    3    1 1290    6]
+ [   0   11    0   14    1    5    5    6   41 1201]]
+2021-08-24 23:30:10 train.py INFO Iter:11000, Train Loss:0.0123, Train Acc:87.50%, Val Loss:0.0429, Val Acc:89.80%, Time:1:25:38 
+2021-08-24 23:37:00 train.py INFO evaluate....................
+2021-08-24 23:37:59 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9370    0.9836    0.9597      1648
+         皮肤科     0.9844    0.9611    0.9726      1312
+          妇科     0.9209    0.9692    0.9444      1429
+       心血管内科     0.9166    0.9042    0.9103      1325
+        耳鼻喉科     0.9540    0.9503    0.9521      1308
+        消化内科     0.9171    0.9393    0.9281      1319
+        小儿内科     0.8618    0.8084    0.8342      1435
+        呼吸内科     0.8694    0.8374    0.8531      1439
+        内分泌科     0.9564    0.8649    0.9084      1318
+        神经内科     0.8659    0.9556    0.9086      1284
+
+    accuracy                         0.9176     13817
+   macro avg     0.9183    0.9174    0.9172     13817
+weighted avg     0.9180    0.9176    0.9171     13817
+
+2021-08-24 23:37:59 train.py INFO Confusion matrix: 
+[[1621    4   14    0    0    2    0    0    2    5]
+ [  22 1261   11    1    1    7    5    0    0    4]
+ [  18    0 1385    1    1    4    5    3    6    6]
+ [  10    0    9 1198    2   10   14   14   18   50]
+ [   1    2    2    2 1243    4   24   25    1    4]
+ [   9    2   22    8    1 1239   25    4    3    6]
+ [   6    2   12   12   23   37 1160  132   19   32]
+ [   9    0    3   35   30   24   92 1205    3   38]
+ [  23    2   38   35    1   15   17    2 1140   45]
+ [  11    8    8   15    1    9    4    1    0 1227]]
+2021-08-24 23:37:59 train.py INFO Iter:12000, Train Loss:0.1554, Train Acc:84.38%, Val Loss:0.0296, Val Acc:91.76%, Time:1:33:28 
+2021-08-24 23:44:46 train.py INFO evaluate....................
+2021-08-24 23:45:45 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9683    0.9624    0.9653      1648
+         皮肤科     0.9648    0.9809    0.9728      1312
+          妇科     0.9839    0.8971    0.9385      1429
+       心血管内科     0.8579    0.9253    0.8903      1325
+        耳鼻喉科     0.9770    0.9106    0.9426      1308
+        消化内科     0.9056    0.9522    0.9283      1319
+        小儿内科     0.8119    0.8453    0.8283      1435
+        呼吸内科     0.8095    0.8770    0.8419      1439
+        内分泌科     0.9505    0.8733    0.9102      1318
+        神经内科     0.9582    0.9276    0.9426      1284
+
+    accuracy                         0.9152     13817
+   macro avg     0.9187    0.9152    0.9161     13817
+weighted avg     0.9184    0.9152    0.9159     13817
+
+2021-08-24 23:45:45 train.py INFO Confusion matrix: 
+[[1586   13    4   11    2    3   13    6    5    5]
+ [   8 1287    3    0    2    3    6    2    1    0]
+ [  31    9 1282   19    0   28   17   24    8   11]
+ [   0    3    1 1226    2   12   13   35   13   20]
+ [   0    2    0    3 1191    0   49   62    1    0]
+ [   3    3    4    8    1 1256   28   14    1    1]
+ [   0    5    0   22   12   26 1213  130   21    6]
+ [   3    0    0   21    7   10  129 1262    3    4]
+ [   5    9    8   83    1   28   19    9 1151    5]
+ [   2    3    1   36    1   21    7   15    7 1191]]
+2021-08-24 23:45:45 train.py INFO Iter:13000, Train Loss:0.0018, Train Acc:96.88%, Val Loss:0.0294, Val Acc:91.52%, Time:1:41:13 
+2021-08-24 23:51:15 train.py INFO Epoch [5/5]
+2021-08-24 23:51:15 train.py INFO tokens: [['[CLS]', '甲', '状', '腺', '癌', '死', '几', '率', '高', '某', '种', '疾', '病', '长', '期', '断', '药', '药', '物', '原', '因', '导', '致', '内', '分', '泌', '系', '统', '想', '要', '停', '药', '调', '理', '请', '问', '甲', '状', '腺', '癌', '死', '几', '率', '高', '[SEP]'], ['[CLS]', '肺', '心', '病', '能', '活', '多', '长', '时', '间', '朋', '友', '患', '肺', '心', '病', '毛', '病', '好', '几', '年', '越', '来', '越', '朋', '友', '感', '觉', '忧', '心', '想', '理', '解', '几', '下', '肺', '心', '病', '活', '多', '久', '[SEP]'], ['[CLS]', '下', '三', '角', '区', '有', '点', '疼', '右', '侧', '睾', '丸', '有', '点', '点', '疼', '[SEP]'], ['[CLS]', '肺', '气', '肿', '胸', '口', '胸', '痛', '胸', '闷', '情', '况', '医', '院', '检', '查', '说', '呼', '吸', '道', '疾', '病', '吃', '药', '管', '用', '咳', '嗽', '加', '重', '请', '问', '肺', '气', '肿', '[SEP]'], ['[CLS]', '你', '好', '我', '岳', '母', '今', '年', 'nu', '##m', '一', '个', '多', '月', '前', '发', '生', '脑', '梗', '左', '半', '身', '偏', '瘫', '现', '在', '进', '入', '康', '复', '疗', '程', '倒', '是', '肌', '张', '力', '特', '别', '高', '神', '经', '内', '科', '建', '议', '停', '止', '康', '复', '康', '复', '科', '认', '为', '可', '以', '继', '续', '治', '疗', '原', '来', '有', '做', '针', '灸', '但', '是', '现', '在', '脚', '已', '替', '停', '行', '针', '手', '还', '在', '继', '续', '行', '针', '医', '院', '反', '馈', '针', '对', '肌', '张', '力', '高', '没', '有', '用', '药', '物', '治', '疗', '原', '因', '是', '说', '如', '果', '没', '掌', '握', '好', '用', '量', '有', '可', '能', '丧', '失', '肌', '张', '力', '想', '请', '教', '一', '下', '专', '[SEP]'], ['[CLS]', '一', '周', '前', '在', '苏', '州', '大', '学', '附', '属', '医', '院', '被', '诊', '断', '为', '急', '性', '咽', '喉', '炎', '症', '状', '为', '咽', '喉', '肿', '痛', '吞', '咽', '不', '适', '轻', '微', '发', '烧', '（', '现', '已', '退', '烧', '）', '曾', '服', '用', '蓝', '芩', '口', '服', '液', '、', '头', '孢', '克', '洛', '缓', '释', '胶', '囊', '（', '曼', '宁', '）', '现', '备', '药', '不', '足', '特', '来', '购', '买', '[SEP]'], ['[CLS]', '克', '罗', '恩', '患', '者', '需', '要', '买', '安', '素', '[SEP]'], ['[CLS]', '白', '带', '异', '常', '治', '疗', '好', '转', '女', '人', '白', '带', '发', '现', '自', '己', '近', '期', '白', '带', '黄', '很', '浓', '稠', '鼻', '涕', '请', '问', '白', '带', '异', '常', '治', '疗', '好', '转', '[SEP]'], ['[CLS]', '白', '带', '异', '味', '该', '会', '缓', '解', '感', '到', '不', '适', '检', '查', '病', '请', '问', '白', '带', '异', '味', '该', '会', '缓', '解', '[SEP]'], ['[CLS]', '鼻', '子', '流', '清', '涕', '约', 'nu', '##m', '天', '鼻', '子', '痒', '干', '咳', '眼', '睛', '灼', '热', '怎', '么', '办', '[SEP]'], ['[CLS]', '左', '脚', '右', '脚', '肿', '是', '原', '因', '双', '脚', '关', '节', '肿', '痛', '左', '脚', '右', '脚', '肿', '抽', '筋', '[SEP]'], ['[CLS]', '癫', '痫', '病', '治', '疗', '过', '程', '很', '长', '儿', '子', '毕', '业', '知', '晓', '患', '上', '癫', '痫', '病', '病', '干', '扰', '儿', '子', '生', '存', '时', '不', '时', '复', '发', '几', '下', '手', '脚', '不', '停', '抽', '动', '想', '癫', '痫', '病', '救', '治', '过', '程', '很', '长', '[SEP]'], ['[CLS]', '缓', '解', '老', '年', '便', '秘', '便', '秘', '一', '年', '有', '过', '灌', '肠', '治', '疗', '不', '见', '转', '好', '吃', '晚', '饭', '吃', '太', '多', '两', '三', '天', '排', '便', '每', '次', '痛', '苦', '不', '堪', '老', '人', '血', '压', '高', '缓', '解', '老', '年', '便', '秘', '[SEP]'], ['[CLS]', '判', '断', '型', '型', '糖', '尿', '病', '一', '名', '同', '学', '糖', '尿', '病', '病', '知', '晓', '好', '不', '好', '救', '治', '引', '来', '推', '测', '糖', '尿', '病', '型', '型', '[SEP]'], ['[CLS]', '胃', '胀', '烧', '心', '胸', '胃', '胀', '烧', '心', '胸', '口', '闷', '抬', '眼', '两', '眼', '发', '黑', '四', '肢', '无', '力', '一', '点', '点', '贫', '血', '[SEP]'], ['[CLS]', '神', '经', '性', '皮', '炎', '湿', '疹', '银', '屑', '病', '患', '多', '种', '皮', '肤', '病', '心', '理', '受', '折', '磨', '请', '医', '生', '诊', '疗', '[SEP]'], ['[CLS]', '阴', '茎', '勃', '起', '时', '会', '阴', '涨', '.', '有', '早', '泄', '[SEP]'], ['[CLS]', '感', '冒', '常', '见', '病', '毒', '感', '冒', '病', '毒', '引', '来', '常', '见', '引', '来', '感', '冒', '病', '毒', '感', '冒', '病', '毒', '引', '来', '救', '治', '麻', '烦', '[SEP]'], ['[CLS]', '你', '好', '医', '生', '从', 'nu', '##m', '岁', '开', '始', '早', '泄', '了', '不', '超', '过', '三', '分', '钟', '现', '在', '勃', '起', '硬', '度', '不', '持', '久', '三', '年', '前', '做', '过', '包', '皮', '手', '术', '切', '过', '背', '神', '经', '早', '泄', '属', '于', '背', '神', '经', '敏', '感', '吃', '过', '一', '些', '微', '营', '销', '那', '种', '说', '治', '疗', '早', '泄', '中', '药', '也', '不', '好', '使', '想', '通', '过', '这', '正', '规', '中', '药', '可', '以', '调', '理', '吗', '谢', '谢', '医', '生', '而', '且', '现', '在', '尿', '不', '尽', '有', '余', '沥', '吃', '这', '些', '金', '锁', '固', '精', '丸', '这', '样', '中', '药', '可', '以', '调', '理', '好', '吗', '哪', '怕', '延', '时', 'nu', '##m', '分', '钟', '也', '行', '[SEP]'], ['[CLS]', '支', '气', '管', '炎', '表', '现', '你', '好', '婆', '婆', '支', '气', '管', '炎', '爸', '爸', '支', '气', '管', '炎', '[SEP]'], ['[CLS]', '江', '西', '哪', '有', '治', '疗', '甲', '状', '腺', '结', '节', '医', '院', '去', '年', '月', '偶', '然', '发', '现', '甲', '状', '腺', '双', '叶', '多', '发', '结', '节', '左', '侧', '叶', '有', '结', '节', '较', '大', '患', '肺', '气', '肿', '病', '心', '肺', '功', '能', '不', '好', '手', '术', '定', '期', '复', '查', '观', '察', '去', '年', '月', '月', 'b', '超', '复', '查', '结', '节', '变', '化', '[SEP]'], ['[CLS]', '探', '望', '高', '血', '压', '病', '人', '送', '明', '天', '男', '朋', '友', '奶', '奶', '家', '知', '晓', '送', '点', '您', '好', '看', '望', '高', '血', '压', '病', '人', '送', '[SEP]'], ['[CLS]', '孩', '子', '三', '十', '八', '度', '要', '吃', '退', '烧', '药', '怎', '么', '回', '事', '孩', '子', '不', '听', '话', '哭', '闹', '不', '休', '医', '院', '检', '查', '没', '用', '请', '问', '孩', '子', '三', '十', '八', '度', '要', '吃', '退', '烧', '药', '[SEP]'], ['[CLS]', '小', '儿', '扁', '桃', '体', '发', '炎', '发', '生', '临', '床', '表', '现', '女', '宝', '宝', '岁', '说', '嗓', '子', '疼', '发', '现', '说', '话', '声', '音', '沙', '哑', '发', '烧', '请', '问', '小', '儿', '扁', '桃', '体', '发', '炎', '发', '生', '临', '床', '表', '现', '[SEP]'], ['[CLS]', '患', '有', '肠', '胃', '炎', '患', '者', '男', '28', '岁', '肠', '胃', '炎', '大', '便', '不', '成', '形', '肠', '道', '咕', '咕', '舒', '服', '肠', '胃', '炎', '[SEP]'], ['[CLS]', '女', '儿', '支', '气', '管', '肺', '炎', '喘', '气', '性', '肺', '怎', '么', '回', '事', '女', '儿', '岁', '支', '气', '管', '肺', '炎', '喘', '息', '性', '肺', '炎', '出', '院', '天', '后', '发', '烧', '时', '发', '时', '退', '上', '医', '院', '检', '查', '一', '切', '正', '常', '请', '问', '怎', '摸', '回', '事', '[SEP]'], ['[CLS]', '突', '发', '脑', '溢', '血', '经', '抢', '救', '后', '第', '一', '次', '做', '导', '管', '微', '创', '手', '术', '第', '三', '天', '继', '续', '出', '血', '又', '做', '开', '颅', '手', '术', '目', '前', '生', '命', '体', '征', '稳', '定', '在', '家', '康', '复', '治', '疗', '为', '补', '充', '营', '养', '现', '需', '要', '购', '买', '雅', '培', '安', '素', '肠', '内', '营', '养', '粉', '剂', '需', '要', '开', '处', '方', '才', '能', '购', '买', '[SEP]'], ['[CLS]', '你', '好', '之', '前', '您', '给', '我', '做', '过', '咨', '询', '就', '是', '买', '的', '那', '个', '戴', '瑞', '肠', '胃', '营', '养', '乳', '现', '在', '我', '想', '再', '买', 'nu', '##m', '袋', '[SEP]'], ['[CLS]', '血', '压', '上', '压', '100', '下', '压', '51', '病', '情', '描', '述', '今', '天', '下', '午', '帮', '太', '太', '测', '量', '血', '压', '上', '压', '100', '下', '压', '51', '治', '疗', '情', '况', '效', '果', '看', '过', '医', '生', '想', '得', '到', '想', '问', '问', '血', '压', '[SEP]'], ['[CLS]', '阳', '痿', '早', '泄', '术', '后', '同', '房', '勃', '起', '做', '手', '术', '救', '治', '一', '个', '多', '月', '晚', '上', '勃', '起', '想', '做', '不', '行', '怎', '么', '回', '事', '[SEP]'], ['[CLS]', '复', '诊', '复', '诊', '开', '药', '谢', '谢', '[SEP]'], ['[CLS]', '小', '孩', '扁', '桃', '体', '发', '炎', '常', '会', '发', '生', '临', '床', '症', '状', '我', '家', '孩', '子', '男', '宝', '宝', '岁', '说', '嗓', '子', '喝', '水', '疼', '发', '现', '咳', '嗽', '剧', '烈', '伴', '有', '低', '烧', '请', '问', '小', '孩', '扁', '桃', '体', '发', '炎', '常', '会', '发', '生', '临', '床', '症', '状', '[SEP]']]
+ 
+2021-08-24 23:51:15 train.py INFO token_ids: tensor([[ 101, 4508, 4307,  ...,    0,    0,    0],
+        [ 101, 5511, 2552,  ...,    0,    0,    0],
+        [ 101,  678,  676,  ...,    0,    0,    0],
+        ...,
+        [ 101, 7345, 4594,  ...,    0,    0,    0],
+        [ 101, 1908, 6402,  ...,    0,    0,    0],
+        [ 101, 2207, 2111,  ...,    0,    0,    0]])
+ 
+2021-08-24 23:51:15 train.py INFO token_ids shape: torch.Size([32, 128])
+ 
+2021-08-24 23:51:15 train.py INFO attention_mask: tensor([[1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        ...,
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0]])
+
+2021-08-24 23:51:15 train.py INFO token_type_ids: tensor([[0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0],
+        ...,
+        [0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0]])
+
+2021-08-24 23:51:15 train.py INFO labels: tensor([8, 7, 0, 7, 9, 4, 5, 2, 2, 4, 3, 9, 5, 8, 5, 1, 0, 7, 0, 7, 8, 3, 6, 4,
+        5, 7, 9, 5, 3, 0, 1, 4])
+
+2021-08-24 23:51:15 train.py INFO labels shape: torch.Size([32])
+
+2021-08-24 23:52:29 train.py INFO evaluate....................
+2021-08-24 23:53:28 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9360    0.9854    0.9601      1648
+         皮肤科     0.9951    0.9299    0.9614      1312
+          妇科     0.9555    0.9314    0.9433      1429
+       心血管内科     0.9514    0.8860    0.9175      1325
+        耳鼻喉科     0.8433    0.9794    0.9063      1308
+        消化内科     0.8790    0.9636    0.9193      1319
+        小儿内科     0.7548    0.8216    0.7868      1435
+        呼吸内科     0.9104    0.7269    0.8083      1439
+        内分泌科     0.9330    0.9188    0.9258      1318
+        神经内科     0.9482    0.9268    0.9374      1284
+
+    accuracy                         0.9066     13817
+   macro avg     0.9107    0.9070    0.9066     13817
+weighted avg     0.9102    0.9066    0.9062     13817
+
+2021-08-24 23:53:28 train.py INFO Confusion matrix: 
+[[1624    2    7    1    2    3    0    0    4    5]
+ [  40 1220   14    1    5    7   17    2    1    5]
+ [  29    1 1331    0    1   20   32    3    8    4]
+ [   9    0    6 1174    7   28   30   21   30   20]
+ [   0    0    1    1 1281    1   15    5    1    3]
+ [   5    0    5    1    3 1271   26    4    3    1]
+ [   4    1    0    6  119   34 1179   59   26    7]
+ [   8    0    3   16   95   29  225 1046    8    9]
+ [  10    1   18   15    4   28   15    5 1211   11]
+ [   6    1    8   19    2   25   23    4    6 1190]]
+2021-08-24 23:53:28 train.py INFO Iter:14000, Train Loss:0.0223, Train Acc:84.38%, Val Loss:0.0288, Val Acc:90.66%, Time:1:48:56 
+2021-08-25 00:00:16 train.py INFO evaluate....................
+2021-08-25 00:01:15 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9803    0.9642    0.9722      1648
+         皮肤科     0.9770    0.9726    0.9748      1312
+          妇科     0.9428    0.9692    0.9558      1429
+       心血管内科     0.9485    0.8891    0.9178      1325
+        耳鼻喉科     0.9632    0.9411    0.9520      1308
+        消化内科     0.9729    0.8976    0.9338      1319
+        小儿内科     0.8335    0.8091    0.8211      1435
+        呼吸内科     0.8406    0.8867    0.8630      1439
+        内分泌科     0.8720    0.9613    0.9145      1318
+        神经内科     0.9318    0.9579    0.9447      1284
+
+    accuracy                         0.9247     13817
+   macro avg     0.9263    0.9249    0.9250     13817
+weighted avg     0.9261    0.9247    0.9248     13817
+
+2021-08-25 00:01:15 train.py INFO Confusion matrix: 
+[[1589   11   14    5    0    1    3    1   18    6]
+ [  11 1276   12    2    0    1    3    1    3    3]
+ [  11    1 1385    2    1    5    2    6   15    1]
+ [   0    2    5 1178    3    5   13   23   61   35]
+ [   0    1    2    1 1231    0   38   30    2    3]
+ [   4    4   17    6    1 1184   74   11   13    5]
+ [   2    4   12   11   17    4 1161  160   47   17]
+ [   3    1    4   17   22    4   87 1276   14   11]
+ [   1    1   12   10    1    6    7    4 1267    9]
+ [   0    5    6   10    2    7    5    6   13 1230]]
+2021-08-25 00:01:15 train.py INFO saving model..........
+2021-08-25 00:01:18 train.py INFO Iter:15000, Train Loss:0.0197, Train Acc:87.50%, Val Loss:0.0239, Val Acc:92.47%, Time:1:56:46 *
+2021-08-25 00:08:03 train.py INFO evaluate....................
+2021-08-25 00:09:02 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9699    0.9775    0.9737      1648
+         皮肤科     0.9638    0.9741    0.9689      1312
+          妇科     0.9555    0.9615    0.9585      1429
+       心血管内科     0.9079    0.9230    0.9154      1325
+        耳鼻喉科     0.8770    0.9809    0.9260      1308
+        消化内科     0.8887    0.9507    0.9187      1319
+        小儿内科     0.8719    0.7540    0.8087      1435
+        呼吸内科     0.8788    0.8367    0.8572      1439
+        内分泌科     0.9531    0.8945    0.9229      1318
+        神经内科     0.9191    0.9470    0.9329      1284
+
+    accuracy                         0.9194     13817
+   macro avg     0.9186    0.9200    0.9183     13817
+weighted avg     0.9194    0.9194    0.9184     13817
+
+2021-08-25 00:09:02 train.py INFO Confusion matrix: 
+[[1611   11    7    3    1    1    1    0    5    8]
+ [  11 1278    8    1    4    2    6    1    1    0]
+ [  19    3 1374    4    1    6    3    4   11    4]
+ [   0    6    4 1223    4    6   12   20   17   33]
+ [   0    1    0    3 1283    0   10    9    1    1]
+ [   6    1   20   10    4 1254   14    7    1    2]
+ [   2    3    5   15   82   88 1082  115   19   24]
+ [   4    1    3   22   77   13   98 1204    3   14]
+ [   6   14   12   38    2   27   12    7 1179   21]
+ [   2    8    5   28    5   14    3    3    0 1216]]
+2021-08-25 00:09:02 train.py INFO Iter:16000, Train Loss:0.0052, Train Acc:93.75%, Val Loss:0.0283, Val Acc:91.94%, Time:2:04:30 
+2021-08-25 00:15:46 train.py INFO evaluate....................
+2021-08-25 00:16:45 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9138    0.9842    0.9477      1648
+         皮肤科     0.9675    0.9748    0.9711      1312
+          妇科     0.9583    0.9489    0.9536      1429
+       心血管内科     0.9634    0.8536    0.9052      1325
+        耳鼻喉科     0.9635    0.9480    0.9557      1308
+        消化内科     0.9290    0.9325    0.9308      1319
+        小儿内科     0.9134    0.7199    0.8051      1435
+        呼吸内科     0.7735    0.9305    0.8448      1439
+        内分泌科     0.9191    0.9401    0.9295      1318
+        神经内科     0.9153    0.9338    0.9244      1284
+
+    accuracy                         0.9168     13817
+   macro avg     0.9217    0.9166    0.9168     13817
+weighted avg     0.9204    0.9168    0.9162     13817
+
+2021-08-25 00:16:45 train.py INFO Confusion matrix: 
+[[1622    9    7    0    0    0    0    0    4    6]
+ [  17 1279    4    1    1    1    1    3    1    4]
+ [  35    6 1356    0    1    6    2    3   16    4]
+ [  13    1    8 1131    2    9    9   58   32   62]
+ [   0    1    0    2 1240    0   20   43    1    1]
+ [  33    5   11    4    0 1230   13   17    3    3]
+ [  24   11    6   18   22   48 1033  211   44   18]
+ [   9    2    6    7   17    6   45 1339    7    1]
+ [  13    1   10    8    1   12    5   17 1239   12]
+ [   9    7    7    3    3   12    3   40    1 1199]]
+2021-08-25 00:16:45 train.py INFO Iter:17000, Train Loss:0.0007, Train Acc:96.88%, Val Loss:0.0280, Val Acc:91.68%, Time:2:12:13 
+2021-08-25 00:18:38 train.py INFO predict....................
+2021-08-25 00:18:38 train.py INFO evaluate....................
+2021-08-25 00:19:36 train.py INFO result: 
+              precision    recall  f1-score   support
+
+          男科     0.9755    0.9704    0.9729      1519
+         皮肤科     0.9528    0.9814    0.9669      1235
+          妇科     0.9851    0.9113    0.9468      1454
+       心血管内科     0.8729    0.9127    0.8924      1272
+        耳鼻喉科     0.9334    0.9538    0.9435      1278
+        消化内科     0.9099    0.9262    0.9180      1396
+        小儿内科     0.7690    0.8434    0.8045      1437
+        呼吸内科     0.8678    0.8349    0.8510      1502
+        内分泌科     0.9441    0.8903    0.9164      1385
+        神经内科     0.9502    0.9261    0.9380      1339
+
+    accuracy                         0.9136     13817
+   macro avg     0.9161    0.9150    0.9150     13817
+weighted avg     0.9157    0.9136    0.9141     13817
+
+2021-08-25 00:19:36 train.py INFO Confusion matrix: 
+[[1474   16    3    5    1    9    4    2    3    2]
+ [   3 1212    0    1    3    2    9    1    2    2]
+ [  20   21 1325   11    1   27   25    3   19    2]
+ [   1    3    6 1161    1   21   24   20   11   24]
+ [   0    0    0    1 1219    1   27   29    0    1]
+ [   4    0    0    8    1 1293   81    4    3    2]
+ [   3    3    1   11   39   19 1212  115   24   10]
+ [   4    2    1   31   31   17  144 1254    4   14]
+ [   1    9    8   71    4   14   28    9 1233    8]
+ [   1    6    1   30    6   18   22    8    7 1240]]
+2021-08-25 00:19:36 train.py INFO Test Loss: 0.032,  Test Acc: 91.36%
+2021-08-25 00:19:36 train.py INFO Time usage:0:00:58

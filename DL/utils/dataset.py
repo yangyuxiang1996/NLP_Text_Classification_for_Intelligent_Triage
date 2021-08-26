@@ -4,7 +4,7 @@
 Author: Yuxiang Yang
 Date: 2021-08-20 19:02:58
 LastEditors: Yuxiang Yang
-LastEditTime: 2021-08-23 16:24:20
+LastEditTime: 2021-08-23 22:21:32
 FilePath: /Chinese-Text-Classification/DL/utils/dataset.py
 Description: 
 '''
@@ -114,7 +114,7 @@ def collate_fn(batch):
     attention_mask = [data["attention_mask"] for data in batch]
     labels = torch.tensor([data["labels"] for data in batch])
     token_ids_padded = padding(token_ids, max_length)
-    if config.model_name == "bert":
+    if "bert" in config.model_name:
         token_type_ids_padded = padding(token_type_ids, max_length)
         attention_mask_padded = padding(attention_mask, max_length)
         return token_ids_padded, attention_mask_padded, token_type_ids_padded, labels
