@@ -4,7 +4,7 @@
 Author: Yuxiang Yang
 Date: 2021-08-20 14:46:39
 LastEditors: Yuxiang Yang
-LastEditTime: 2021-08-20 20:47:44
+LastEditTime: 2021-08-26 17:24:58
 FilePath: /Chinese-Text-Classification/ml/model.py
 Description: 
 '''
@@ -27,6 +27,7 @@ from tools import bayes_cv_search, grid_cv_search, create_logger, bayes_optimize
 from skopt.space import Real, Categorical, Integer
 from sklearn.decomposition import PCA 
 import config
+import pickle
 from embedding import Embedding
 from features import (get_basic_feature, get_embedding_feature,
                       get_lda_features, get_tfidf)
@@ -54,10 +55,10 @@ class Classifier:
         if self.tuner:
             assert self.tuner in ['bayes', 'grid']
         if self.mode == "train":
-            self.train = pd.read_csv(config.train_data_file, sep='\t').dropna().reset_index(drop=True)
-            self.dev = pd.read_csv(config.eval_data_file, sep='\t').dropna().reset_index(drop=True)
+            self.train_data = pd.read_csv(config.train_data_file, sep='\t').dropna().reset_index(drop=True)
+            self.dev_data = pd.read_csv(config.eval_data_file, sep='\t').dropna().reset_index(drop=True)
         else:
-            self.test = pd.read_csv(config.test_data_file, sep='\t').dropna().reset_index(drop=True)
+            self.test_data = pd.read_csv(config.test_data_file, sep='\t').dropna().reset_index(drop=True)
         self.exclusive_col = ['text', 'lda', 'bow', 'label']
         self.model=None
         self.model_name = model_name
@@ -73,25 +74,28 @@ class Classifier:
         logging.info("data:\n %s" %  data)
         return data
 
-    def trainer(self):
+    def train(self):
         if os.path.exists(config.cached_train_data):
-            self.train = pd.read_pickle(config.cached_train_data)
-            self.eval = pd.read_pickle(config.cached_eval_data)
+            self.train_data = pickle.load(open(config.cached_train_data, "rb"))
         else:
-            self.train = self.feature_engineer(self.train)
-            self.dev = self.feature_engineer(self.dev)
-            self.train.to_pickle(config.cached_train_data)
-            self.dev.to_pickle(config.cached_eval_data)
-        logging.info(self.train[:5])
-        logging.info(self.dev[:5])
-        cols = [x for x in self.train.columns if x not in self.exclusive_col]
-        print(cols)
+            self.train_data = self.feature_engineer(self.train_data)
+            pickle.dump(self.train_data, open(config.cached_train_data, "wb"))
+        
+        if os.path.exists(config.cached_eval_data):
+            self.dev_data = pickle.load(open(config.cached_eval_data, "rb"))
+        else:
+            self.dev_data = self.feature_engineer(self.dev_data)
+            pickle.dump(self.dev_data, open(config.cached_eval_data, "wb"))
 
-        X_train = self.train[cols]
-        y_train = self.train['label']
+        logging.info("train_data: \n", self.train_data[:5])
+        logging.info("eval_data: \n", self.dev_data[:5])
+        cols = [x for x in self.train_data.columns if x not in self.exclusive_col]
 
-        X_test = self.dev[cols]
-        y_test = self.dev['label']
+        X_train = self.train_data[cols]
+        y_train = self.train_data['label']
+
+        X_test = self.dev_data[cols]
+        y_test = self.dev_data['label']
 
         # #初始化多标签训练
         logging.info("start training......")
@@ -134,8 +138,8 @@ class Classifier:
 
             elif self.tuner and self.tuner == 'grid':
                 params_grid = {
-                    'learning_rate': [0.01],
-                    'max_depth': [8]
+                    'learning_rate': [0.01, 0.1],
+                    'max_depth': [8, 10]
                 }
                 clf = grid_cv_search(model=model_lgb, params=params_grid, X_train=X_train, y_train=y_train)
                 self.model = clf.best_estimator_
@@ -194,15 +198,14 @@ class Classifier:
 
 
 if __name__ == "__main__":
-    bc = Classifier(mode='train', tuner="grid", model_name="lgb")
-    bc.trainer()
+    model = Classifier(mode='train', tuner="grid", model_name="lgb")
+    model.train()
+    
+    bc = Classifier(mode='predict')
+    df = pd.read_csv("./data/test.csv", sep='\t').dropna().reset_index(drop=True)
+    text = df['text'].values
+    target = df['label']
+    label = bc.predict(text)
 
-    # bc = Classifier(mode='predict')
-    # df = pd.read_csv("./data/test.csv", sep='\t').dropna().reset_index(drop=True)
-    # text = df['text'].values
-    # target = df['label']
-    # label = bc.predict(text)
-
-
-    # print("predicted label: %s " % label)
-    # logging.info('prediction accuracy: %s', metrics.accuracy_score(target, label))
+    print("predicted label: %s " % label)
+    logging.info('prediction accuracy: %s', metrics.accuracy_score(target, label))
