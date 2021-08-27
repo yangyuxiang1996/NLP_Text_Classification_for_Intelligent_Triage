@@ -4,7 +4,7 @@
 Author: Yuxiang Yang
 Date: 2021-08-20 19:02:58
 LastEditors: Yuxiang Yang
-LastEditTime: 2021-08-23 22:21:32
+LastEditTime: 2021-08-27 21:10:35
 FilePath: /Chinese-Text-Classification/DL/utils/dataset.py
 Description: 
 '''
@@ -13,12 +13,16 @@ sys.path.append("../")
 import pandas as pd
 import torch
 import json
+import re
 from torch.utils.data import Dataset
 import config
 from transformers import RobertaTokenizer, BertTokenizer, BertModel
 from utils.vocab import Dictionary
-from transformers import AutoTokenizer, AutoModelForMaskedLM
 
+
+def clean_txt(raw):
+    fil = re.sub(r"[^a-zA-Z\u4e00-\u9fa5]+", ' ', raw).strip()
+    return fil
 
 class MedicalData(Dataset):
     def __init__(self,
@@ -26,8 +30,15 @@ class MedicalData(Dataset):
                  max_length=128,
                  tokenizer=None,
                  char_level=True,
-                 dictionary=None):
+                 dictionary=None,
+                 stopwords=None):
         self.data = pd.read_csv(path, sep='\t', header=0)
+        self.data['text'] = self.data['text'].apply(lambda x: clean_txt(x))
+    
+        # 是否去除停用词
+        if stopwords:
+            self.data['text'] = self.data['text'].apply(lambda x: " ".join(
+                [w for w in x.split() if w not in stopwords]))
         if char_level:
             self.data["text"] = self.data["text"].apply(
                 lambda x: "".join(x.split(" ")))
@@ -70,7 +81,7 @@ class MedicalData(Dataset):
         else:
             # 如果是cnn rnn， transformer则使用自建的dictionary 来处理
             text = text.split()
-            text = text if len(text) < self.max_length else text[:self.max_length]
+            text = text if len(text) < self.max_length-2 else text[:self.max_length-2]
             input_ids = [self.tokenizer.indexer('<SOS>')] + \
                 [self.tokenizer.indexer(x) for x in text] + \
                     [self.tokenizer.indexer('<EOS>')]
@@ -107,9 +118,13 @@ def collate_fn(batch):
         ]
         return torch.tensor(pad_indice)
 
+    tokens = [data["input"] for data in batch]
     token_ids = [data["token_ids"] for data in batch]
     seq_len = [data["seq_len"] for data in batch]
-    max_length = max(seq_len)
+    if config.model_name != "textcnn":
+        max_length = max(seq_len)
+    else:
+        max_length = config.max_seq_length
     token_type_ids = [data["token_type_ids"] for data in batch]
     attention_mask = [data["attention_mask"] for data in batch]
     labels = torch.tensor([data["labels"] for data in batch])
@@ -117,9 +132,9 @@ def collate_fn(batch):
     if "bert" in config.model_name:
         token_type_ids_padded = padding(token_type_ids, max_length)
         attention_mask_padded = padding(attention_mask, max_length)
-        return token_ids_padded, attention_mask_padded, token_type_ids_padded, labels
+        return token_ids_padded, attention_mask_padded, token_type_ids_padded, labels, tokens
     else:
-        return token_ids_padded, labels
+        return token_ids_padded, labels, tokens
         
 
 # if __name__ == "__main__":

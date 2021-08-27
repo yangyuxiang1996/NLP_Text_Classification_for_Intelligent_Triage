@@ -4,7 +4,7 @@
 Author: Yuxiang Yang
 Date: 2021-08-20 22:19:05
 LastEditors: Yuxiang Yang
-LastEditTime: 2021-08-23 11:26:15
+LastEditTime: 2021-08-27 20:08:40
 FilePath: /Chinese-Text-Classification/DL/utils/vocab.py
 Description: 
 '''
@@ -48,7 +48,7 @@ class Dictionary(object):
     def _load_word2vec(self, data):
         if os.path.exists(config.w2v_path):
             logging.info("加载 word2vec..........")
-            self.w2v = models.KeyedVectors.load_word2vec_format(config.w2v_path, binary=True)   
+            self.w2v = models.KeyedVectors.load_word2vec_format(config.w2v_path, binary=False)   
         else:
             #对 w2v 初始化 并建立词表，训练
             logging.info("Training word2vec..........")

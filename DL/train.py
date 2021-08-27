@@ -4,7 +4,7 @@
 Author: Yuxiang Yang
 Date: 2021-08-22 22:01:56
 LastEditors: Yuxiang Yang
-LastEditTime: 2021-08-24 21:00:29
+LastEditTime: 2021-08-27 21:10:53
 FilePath: /Chinese-Text-Classification/DL/train.py
 Description: 
 '''
@@ -19,6 +19,7 @@ import config
 from utils.dataset import MedicalData, collate_fn
 from models.bilstm import LSTMModel
 from models.bert_model import BertModelForMedical
+from models.textcnn import TextCNN
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
 from transformers import BertConfig, BertTokenizer
 import logging
@@ -129,7 +130,7 @@ def train(model, train_dataset, dev_dataset, test_dataset):
     for epoch in range(config.num_train_epochs):
         logging.info('Epoch [{}/{}]'.format(epoch + 1, config.num_train_epochs))
         for i, batch in enumerate(train_dataloader):
-            attention_mask, token_type_ids = None, None
+            attention_mask, token_type_ids = torch.tensor([1]), torch.tensor([1])
             if "bert" in config.model_name:
                 token_ids, attention_mask, token_type_ids, labels, tokens = batch
             else:
@@ -203,7 +204,7 @@ def evaluate(model, dev_dataset, print_report=True):
     labels_all = np.array([], dtype=int)
     with torch.no_grad():
         for i, batch in enumerate(dev_dataloader):
-            attention_mask, token_type_ids = None, None
+            attention_mask, token_type_ids = torch.tensor([1]), torch.tensor([1])
             if "bert" in config.model_name:
                 token_ids, attention_mask, token_type_ids, labels, tokens = batch
             else:
@@ -250,17 +251,25 @@ def predict(model, test_dataset):
     
 def main():
     logging.info("加载数据......")
+    stopwords = []
+#     with open(config.stopWords_file, 'r') as f:
+#         for line in f.readlines():
+#             line = line.strip()
+#             stopwords.append(line)
     train_dataset = MedicalData(config.train_data_file, 
                                 config.max_seq_length,
-                                char_level=config.char_level)
+                                char_level=config.char_level,
+                                stopwords=stopwords)
     dev_dataset = MedicalData(config.eval_data_file,
                               config.max_seq_length,
                               char_level=config.char_level,
-                              dictionary=train_dataset.tokenizer)
+                              dictionary=train_dataset.tokenizer,
+                              stopwords=stopwords)
     test_dataset = MedicalData(config.test_data_file,
                                config.max_seq_length,
                                char_level=config.char_level,
-                               dictionary=train_dataset.tokenizer)
+                               dictionary=train_dataset.tokenizer,
+                               stopwords=stopwords)
     if config.model_name == "bilstm":
         tokenizer = train_dataset.tokenizer
         vocab_size = tokenizer.vocabulary_size
@@ -288,6 +297,20 @@ def main():
         train_dataset.tokenizer = tokenizer
         dev_dataset.tokenizer = tokenizer
         test_dataset.tokenizer = tokenizer
+    elif config.model_name == "textcnn":
+        tokenizer = train_dataset.tokenizer
+        vocab_size = tokenizer.vocabulary_size
+        embeddings = torch.from_numpy(train_dataset.embeddings).to(torch.float32)
+        model = TextCNN(vocab_size=vocab_size, 
+                        embedding_dim=config.embedding_dim,
+                        feature_dim=config.feature_dim,
+                        window_size=config.window_size,
+                        max_seq_length=config.max_seq_length,
+                        num_classes=config.num_classes,
+                        dropout=config.dropout,
+                        embeddings=embeddings,
+                        fine_tune=config.fine_tune)
+        
     
     if config.model_name != 'transformer':
         init_network(model)
